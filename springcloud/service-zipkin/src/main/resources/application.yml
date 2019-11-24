@@ -1,0 +1,16 @@
+server:
+  port:9411 #默认端口
+spring:
+  application:
+    name: server-sipkin   #服务名称
+  zipkin:
+    base-url: http://127.0.0.1:9411
+eureka:
+  client:
+    serverUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/ #注册中心地址
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false #2.10版本后增加了这段配置

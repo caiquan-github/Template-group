@@ -6,11 +6,13 @@
 
     <groupId>com.forezp</groupId>
     <artifactId>springcloud</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>eureka-server</module>
         <module>service-feign</module>
         <module>service-hi</module>
+        <module>service-zipkin</module>
     </modules>
 
     <parent>
