@@ -1,10 +1,8 @@
 server:
-  port:9411 #默认端口
+  port: 9411 #默认端口
 spring:
   application:
     name: server-sipkin   #服务名称
-  zipkin:
-    base-url: http://127.0.0.1:9411
 eureka:
   client:
     serverUrl:
