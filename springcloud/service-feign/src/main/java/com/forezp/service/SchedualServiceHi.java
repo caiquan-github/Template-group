@@ -13,8 +13,7 @@ import java.io.Serializable;
 /**
  * Created by fangzhipeng on 2017/4/6.
  */
-@Component
-@FeignClient(value = "service-hi")
+@FeignClient(value = "service-hi",fallback = SchedualServicelmpl.class)
 public interface SchedualServiceHi {
     @RequestMapping(value = "/hi",method = RequestMethod.GET)
     String sayHiFromClientOne(@RequestParam(value = "name") String name);
