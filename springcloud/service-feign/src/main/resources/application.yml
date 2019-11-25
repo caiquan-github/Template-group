@@ -9,6 +9,10 @@ spring:
     name: service-feign
   zipkin:
     base-url: http://127.0.0.1:9411
+  boot:
+    admin:
+      client:
+        url: http://127.0.0.1:8084
 feign:
   hystrix:
     enabled: true

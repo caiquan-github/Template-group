@@ -50,6 +50,7 @@
 			<artifactId>spring-cloud-starter-zipkin</artifactId>
 			<version>2.1.6.RELEASE</version>
 		</dependency>
+
 	</dependencies>
 
 

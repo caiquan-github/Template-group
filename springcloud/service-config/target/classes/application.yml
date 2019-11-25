@@ -1,0 +1,16 @@
+spring:
+    application:
+      name: springcloud-config
+    cloud:
+      config:
+        lable: master   #分支
+        server:
+          git:
+            uri: https://github.com/caiquan-github/spring-cloud-config.git #这里是github仓库地址
+            search-paths: /config      #这里是github查找的路径
+    boot:
+      admin:
+        client:
+          url: http://127.0.0.1:8484
+server:
+  port: 8888 #如果需要改端口 需要在bootstrap.yml配置文件中去修改 这里修改可能不成功

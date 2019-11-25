@@ -9,33 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>service-zipkin</artifactId>
-
+    <artifactId>service-config</artifactId>
     <dependencies>
         <dependency>
-            <groupId>io.zipkin.java</groupId>
-            <artifactId>zipkin</artifactId>
-            <version>2.10.1</version>
-        </dependency>
-        <dependency>
-            <groupId>io.zipkin.java</groupId>
-            <artifactId>zipkin-server</artifactId>
-            <version>2.10.1</version>
-        </dependency>
-        <dependency>
-            <groupId>io.zipkin.java</groupId>
-            <artifactId>zipkin-autoconfigure-ui</artifactId>
-            <version>2.10.1</version>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-netflix-eureka-client</artifactId>
-            <version>1.4.3.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-zipkin</artifactId>
-            <version>2.1.6.RELEASE</version>
+            <artifactId>spring-cloud-config-server</artifactId>
+            <version>2.1.5.RELEASE</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/de.codecentric/spring-boot-admin-starter-client -->
         <dependency>
@@ -50,9 +29,7 @@
             <artifactId>jolokia-core</artifactId>
             <version>1.6.2</version>
         </dependency>
-
-
-
     </dependencies>
+
 
 </project>

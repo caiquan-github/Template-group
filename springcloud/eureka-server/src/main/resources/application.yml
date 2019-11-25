@@ -10,4 +10,8 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 spring:
   zipkin:
-    base-url: http://127.0.0.1:9411 #ZipKin server 地址
+    base-url: http://127.0.0.1:9411   #ZipKin server 地址
+  boot:
+    admin:
+      client:
+        url: http://127.0.0.1:8084

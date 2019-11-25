@@ -1,11 +1,9 @@
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-server:
-  port: 8762
 spring:
-  application:
-    name: service-hi
-  zipkin:
-    base-url: http://127.0.0.1:9411
+    cloud:
+        config:
+            name: server-hi             #这个是在github上传的文件头（appliction-profile）
+            profile: dev             #这个是在github上传的文件尾（appliction-profile）
+            label: master                 #分支
+            uri: http://127.0.0.1:8888    #springcloud-config 项目的地址
+
+
