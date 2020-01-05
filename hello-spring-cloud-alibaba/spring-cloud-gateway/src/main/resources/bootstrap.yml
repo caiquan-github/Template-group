@@ -1,21 +1,19 @@
 spring:
   application:
-    name: service-consumer
+    name: service-gateway
   cloud:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
     sentinel:
       transport:
-        port: 8719
         dashboard: 127.0.0.1:8080
+    gateway:
+      discovery:
+        locator:
+          enabled: true
 server:
-  port: 9002
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
+  port: 9000
 feign:
   sentinel:
-    enabled: true
+    enable: true

@@ -17,6 +17,7 @@
         <module>spring-cloud-alibaba-dubbo-dependencies</module>
         <module>spring-cloud-alibaba-dubbo-provider</module>
         <module>spring-cloud-alibaba-dubbo-consumer</module>
+        <module>spring-cloud-gateway</module>
     </modules>
 
     <properties>

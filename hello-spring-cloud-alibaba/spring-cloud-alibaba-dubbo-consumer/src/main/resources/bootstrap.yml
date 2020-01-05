@@ -5,6 +5,10 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: 127.0.0.1:8080
 server:
   port: 9002
 management:
@@ -12,3 +16,6 @@ management:
     web:
       exposure:
         include: "*"
+feign:
+  sentinel:
+    enabled: true
