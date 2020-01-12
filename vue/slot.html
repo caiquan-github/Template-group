@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <todo>
+        <todo-title slot="todo-title-1" v-bind:title="title"></todo-title>
+        <todo-itmes slot="todo-itmes-1" v-for="(itme,index) in itmes" v-bind:itme="itme" v-bind:index="index" v-on:remove="removeItmes(index)"></todo-itmes>
+    </todo>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+<script type="text/javascript">
+    Vue.component("todo",{
+        template: "<div>\
+                    <slot name='todo-title-1'></slot>\
+                        <ul>\
+                            <slot name='todo-itmes-1'></slot>\
+                        </ul>\
+                    </div>\
+                    "
+    });
+    Vue.component("todo-title",{
+        props:["title"],
+        template: "<h1>{{title}}</h1>"
+    })
+    Vue.component("todo-itmes",{
+        props:["itme","index"],
+        template: "<li>{{index}} ,{{itme}} <button @click='remove(index)'>remove</button></li>",
+        methods:{
+            remove:function (index) {
+                this.$emit("remove",index);
+            }
+        }
+    })
+    var vm=new Vue({
+        el: "#app",
+        data:{
+            title:"新番",
+            itmes:["炭智狼","米豆子"]
+        },
+        methods: {
+            removeItmes: function (index) {
+                this.itmes.splice(index,1)
+                
+            }
+        }
+    });
+</script>
+</body>
+</html>

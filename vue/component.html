@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <my-li v-for="name in names" v-bind:name1="name"></my-li>
+    </ul>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+<script type="text/javascript">
+    Vue.component("my-li",{
+        props: ['name1'],
+        template: "<li>{{name1}}</li>"
+    });
+    var vm=new Vue({
+        el: "#app",
+        data:{
+            names:["炭智狼","米豆子"]
+        }
+    });
+</script>
+</body>
+</html>
