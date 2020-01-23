@@ -1,15 +1,18 @@
 <template>
   <div id="app">
-    <router-link to="/">首页</router-link>
-    <router-link to="/content">内容</router-link>
-    <router-view />
+    <img src="./assets/logo.png">
+    <HelloWorld/>
   </div>
 </template>
 
 <script>
+import HelloWorld from './components/HelloWorld'
 
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    HelloWorld
+  }
 }
 </script>
 
