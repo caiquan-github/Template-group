@@ -81,12 +81,12 @@
             <maxFileSize>1MB</maxFileSize>
         </rollingPolicy>
         <!--日志级别过滤器-->
-<!--        <filter class="ch.qos.logback.classic.filter.LevelFilter">-->
-<!--            &lt;!&ndash;日志过滤规则&ndash;&gt;-->
-<!--            <level>INFO</level>-->
-<!--            <onMatch>ACCEPT</onMatch>-->
-<!--            <onMismatch>DENY</onMismatch>-->
-<!--        </filter>-->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <!--日志过滤规则-->
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
     </appender>
 
     <!--异步日志-->
