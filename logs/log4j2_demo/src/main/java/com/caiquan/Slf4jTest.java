@@ -9,9 +9,7 @@ import org.slf4j.LoggerFactory;
 
 public class Slf4jTest {
 
-
     public static final Logger LOGGER = LoggerFactory.getLogger(Slf4jTest.class);
-
 
     // 快速入门
     @Test
@@ -22,7 +20,6 @@ public class Slf4jTest {
         LOGGER.info("info");
         LOGGER.debug("debug");
         LOGGER.trace("trace");
-
-
     }
+
 }
