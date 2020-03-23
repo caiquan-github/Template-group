@@ -1,0 +1,3 @@
+server:
+  name: spring
+  port: 8080
