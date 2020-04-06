@@ -12,6 +12,13 @@ spring:
       discovery:
         locator:
           enabled: true
+      routes:
+        - id: c1
+          uri: lb://service-provider
+          predicates:
+            - Method=GET,POST
+            - Path=/haha/**
+
 server:
   port: 9000
 feign:
