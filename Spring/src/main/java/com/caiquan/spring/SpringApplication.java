@@ -1,6 +1,5 @@
 package com.caiquan.spring;
 
-import com.sun.org.apache.xerces.internal.dom.PSVIAttrNSImpl;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
