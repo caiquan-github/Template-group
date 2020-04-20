@@ -1,3 +1,4 @@
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.utils.URIBuilder;
@@ -31,7 +32,15 @@ public class HttpGetTest {
 
         System.out.println("请求的内容"+httpGet);
 
-        //请求 获取
+        //httpclient配置
+        RequestConfig config = RequestConfig.custom().setConnectTimeout(1000) //创建连接最长时间，单位毫秒
+            .setConnectionRequestTimeout(500)  //设置获取连接的最长时间
+            .setSocketTimeout(10*1000)   //设置数据传输的最长时间 ，单位是毫秒
+            .build();
+
+        httpGet.setConfig(config);
+
+        //请求 获取response
         CloseableHttpResponse response = httpclient.execute(httpGet);
 
         //解析响应
