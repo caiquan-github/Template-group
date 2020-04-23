@@ -12,8 +12,17 @@ import org.springframework.stereotype.Service;
  */
 @Component
 public class HelloServiceImpl implements HelloService {
+    //Spring应用上下文环境
+    private TestServiceImpl testService;
+
+    private String str ;
+
+    public HelloServiceImpl(TestServiceImpl testService){
+        str=testService.test();
+
+    }
 
     public String hello() {
-        return "hello";
+        return str;
     }
 }
