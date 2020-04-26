@@ -22,11 +22,9 @@ public class RedisService {
 
     @Test
     public void test(){
-        try {
+
             redisTemplate.opsForValue().set("1","我是储存的值");
-        }catch (RedisConnectionFailureException r){
-            System.out.println("网络连接异常");
-        }
+
 
 
     }
