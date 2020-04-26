@@ -37,7 +37,6 @@ public class JsoupTest {
         //创建httpget对象
         HttpGet httpGet=new HttpGet(uriBuilder.build());
         httpGet.addHeader("User-Agent","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36");
-
         System.out.println("请求的内容"+httpGet);
 
         //httpclient配置
