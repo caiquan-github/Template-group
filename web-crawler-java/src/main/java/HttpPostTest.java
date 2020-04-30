@@ -24,7 +24,7 @@ public class HttpPostTest {
         CloseableHttpClient  httpclient = HttpClients.createDefault();
 
         //设置请求地址，创建URIBulder
-        URIBuilder uriBuilder = new URIBuilder("https://www.baidu.com/s");
+        URIBuilder uriBuilder = new URIBuilder("http://node1-calcsvr.realsvr.cs-xc-idc2-area1.singhand.com:8004/proxy/show");
 
 
     //        //set 参数
@@ -35,13 +35,13 @@ public class HttpPostTest {
 
         //声明List集合，封装表单中的参数
         List<NameValuePair> parmes= new ArrayList<NameValuePair>();
-        parmes.add(new BasicNameValuePair("wd","java"));
+        parmes.add(new BasicNameValuePair("channel","twitter"));
 
         //创建表单对象Entity
-        UrlEncodedFormEntity formEntity =new UrlEncodedFormEntity(parmes,"urf8");
+        UrlEncodedFormEntity formEntity =new UrlEncodedFormEntity(parmes,"utf-8");
 
         //包装头文件
-        HttpPost.addHeader("User-Agent","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36");
+//        HttpPost.addHeader("User-Agent","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36");
 
         System.out.println("请求的内容"+HttpPost);
 
