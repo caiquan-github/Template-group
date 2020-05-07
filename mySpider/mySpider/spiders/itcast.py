@@ -11,9 +11,9 @@ class ItcastSpider(scrapy.Spider):
     )
 
     def parse(self, response):
-        # filename= "teacher.html"
-        # open(filename,"wb+").write(response.body)
-        # 存放信息的集合
+        filename= "teacher.html"
+        open(filename,"wb+").write(response.body)
+        #存放信息的集合
 
         itmes =[]
         for each in response.xpath("//div[@class='li_txt']"):
