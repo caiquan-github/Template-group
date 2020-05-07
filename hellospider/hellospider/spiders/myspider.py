@@ -37,4 +37,5 @@ class MySpider(scrapy.Spider):
                 './/div[contains(@class,"threadlist_author pull_right")]//span[contains(@class,"frs-author-name-wrap")]/a/text()').extract()
             item['reply'] = line.xpath(
                 './/div[contains(@class,"col2_left j_threadlist_li_left")]/span/text()').extract()
-            yield item
+
+            yield item  #向pipelines提交数据

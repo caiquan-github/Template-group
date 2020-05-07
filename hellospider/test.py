@@ -1,9 +1,7 @@
-#!/usr/bin/env python
-# Version = 3.5.2
-# __auth__ = '无名小妖'
 import json
+import pymysql
 
-with open('itmes.json') as f:
+with open('./items.json') as f:
     rownum = 0
     new_list = json.load(f)
     for i in new_list:
@@ -12,3 +10,6 @@ with open('itmes.json') as f:
                                                                      i['title'][0],
                                                                      i['author'][0],
                                                                      i['reply'][0]))
+
+
+

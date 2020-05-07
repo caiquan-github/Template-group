@@ -67,6 +67,12 @@ ROBOTSTXT_OBEY = True
 #ITEM_PIPELINES = {
 #    'hellospider.pipelines.HellospiderPipeline': 300,
 #}
+ITEM_PIPELINES = {
+    'hellospider.pipelines.QiubaiproPipelineByMysql': 300,
+'hellospider.pipelines.JsonWithEncodingPipeline': 200,
+
+}
+
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
