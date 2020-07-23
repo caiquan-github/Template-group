@@ -22,6 +22,7 @@ class QiubaiproPipelineByMysql(object):
         }
         #链接数据库
         self.conn  = pymysql.connect(**config)
+        self.cursor = self.conn.cursor()
 
 
     #编写向数据库中存储数据的相关代码
@@ -29,14 +30,13 @@ class QiubaiproPipelineByMysql(object):
         #1.链接数据库
         #2.执行sql语句
         sql = "INSERT INTO article(title,name,reply) VALUES(%s,%s,%s)"
-        self.cursor = self.conn.cursor()
+
         self.cursor.execute(sql,(item['title'], item['author'], item['reply']))
         self.conn.commit()  #提交数据
 
         return item
 
     def close_spider(self,spider):
-        print('爬虫结束')
         self.cursor.close()
         self.conn.close()
 
