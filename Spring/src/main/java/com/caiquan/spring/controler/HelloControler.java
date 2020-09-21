@@ -4,7 +4,6 @@ import com.caiquan.spring.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -22,11 +21,5 @@ public class HelloControler {
     @ResponseBody
     public String hello(){
         return helloServiceImpl.hello();
-    }
-
-    @GetMapping("test/{value}/add")
-    @ResponseBody
-    public String test(@PathVariable("value") String value){
-        return value;
     }
 }
