@@ -128,7 +128,7 @@ public class HttpRequestUtils {
     }
     
 
-    public static String doPost(String url, JSONObject params){
+    public static String    doPost(String url, JSONObject params){
         String strResult = "";
         // 1. 获取默认的client实例
         CloseableHttpClient client = HttpClients.createDefault();
