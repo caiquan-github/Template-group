@@ -7,5 +7,5 @@ package com.caiquan.spring.service;
  * @date 2020/10/1212:36
  */
 public interface WorkService {
-    void test();
+    String test();
 }

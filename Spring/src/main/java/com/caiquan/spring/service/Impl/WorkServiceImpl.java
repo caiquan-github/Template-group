@@ -20,7 +20,7 @@ public class WorkServiceImpl implements WorkService {
 
     }
     @Override
-    public void test() {
-
+    public String test() {
+        return "work test";
     }
 }
