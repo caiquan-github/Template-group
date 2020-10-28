@@ -1,0 +1,8 @@
+server:
+  port: 6868 #服务端口 自定义
+eureka:
+  client:
+    fetch-registry: false #是否从Eureka中获取注册信息 如果搭建是eureka集群 则用rtue
+    service-url: #Eureka客户端与Eureka服务端进行交互的地址
+      defaultZone: http://127.0.0.1:${server.port}/eureka/
+    register-with-eureka: false  # 如果搭建是eureka集群 则用rtue

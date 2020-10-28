@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: hello-service
+server:
+  port: 9000
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:6868/eureka/
