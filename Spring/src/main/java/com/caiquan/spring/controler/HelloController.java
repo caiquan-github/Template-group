@@ -1,13 +1,13 @@
 package com.caiquan.spring.controler;
 
+import com.caiquan.spring.controler.face.HelloControllerFace;
+import com.caiquan.spring.controler.face.HelloControllerFace2;
 import com.caiquan.spring.service.HelloService;
 import com.caiquan.spring.service.WorkService;
 import com.caiquan.spring.threadPool.ThreadPool;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author Kwon
@@ -15,25 +15,24 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @Description:
  * @date 2020/3/2322:15
  */
-@Controller
-public class HelloControler {
+@RestController
+public class HelloController implements HelloControllerFace2 {
     @Autowired
     HelloService helloServiceImpl;
 
     @Autowired
     WorkService workService;
 
-    @GetMapping("hello")
-    @ResponseBody
+    @Override
     public String hello(){
         return helloServiceImpl.hello();
     }
 
-    @GetMapping("test/{value}/add")
-    @ResponseBody
-    public String test(@PathVariable("value") String value){
+    @Override
+    public String test(@PathVariable("value")String value){
         return value;
     }
+
 
     @Autowired
     public void testAuto() throws InterruptedException {
@@ -46,7 +45,6 @@ public class HelloControler {
                 e.printStackTrace();
             }
         });
-
     }
 
 }

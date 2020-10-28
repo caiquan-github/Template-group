@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 @RequestMapping("work")
-public class WorkControler {
+public class WorkController {
     @Autowired
     HelloService helloServiceImpl;
 
