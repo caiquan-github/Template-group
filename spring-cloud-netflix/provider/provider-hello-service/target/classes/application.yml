@@ -2,7 +2,7 @@ spring:
   application:
     name: hello-service
 server:
-  port: 9000
+  port: 9005
 eureka:
   instance:
     hostname: localhost

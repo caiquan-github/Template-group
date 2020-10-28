@@ -17,7 +17,8 @@ public class HelloControllerImpl implements HelloController {
     HelloService helloServiceImpl;
 
     @Override
-    public String hello(){
+    public String hello() throws InterruptedException {
+        System.out.printf("收到一次请求 哈哈");
         return helloServiceImpl.hello();
     }
 

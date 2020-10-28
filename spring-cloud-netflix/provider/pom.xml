@@ -13,6 +13,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>provider-hello-service</module>
+        <module>provider-com.caiquan.hello-service</module>
     </modules>
 </project>

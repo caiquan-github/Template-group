@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>provider-hello-service</artifactId>
+    <artifactId>provider-com.caiquan.hello-service</artifactId>
 
     <dependencies>
         <dependency>

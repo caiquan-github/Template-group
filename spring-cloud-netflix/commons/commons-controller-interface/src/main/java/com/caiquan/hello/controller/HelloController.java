@@ -14,5 +14,4 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public interface HelloController {
     @PostMapping("world")
     String hello() throws Exception;
-
 }

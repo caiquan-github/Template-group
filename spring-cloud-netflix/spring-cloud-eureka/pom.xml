@@ -29,7 +29,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.caiquan.hello.test.EurekaApplication</mainClass>
+                    <mainClass>com.caiquan.com.caiquan.hello.test.EurekaApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

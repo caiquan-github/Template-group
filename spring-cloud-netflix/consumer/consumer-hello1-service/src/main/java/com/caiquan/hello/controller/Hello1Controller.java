@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2020/10/2817:28
  */
 @RestController
-@RequestMapping("hello1")
+@RequestMapping("hello")
 public class Hello1Controller {
     @Autowired
     HelloFeign helloFeign;
