@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
-public class FileChannle01 {
+public class FileChannel01 {
     public static void main(String[] args) throws IOException {
         String str= "hello world";
         //创建一个输出流
