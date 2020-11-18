@@ -7,6 +7,14 @@ import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
 public class FileChannel01 {
+    /**
+     * 写数据到文件
+     *
+     * @author Kwon
+     * @date 2020/11/18 23:30
+     * @param args
+     * @return
+     */
     public static void main(String[] args) throws IOException {
         String str= "hello world";
         //创建一个输出流
