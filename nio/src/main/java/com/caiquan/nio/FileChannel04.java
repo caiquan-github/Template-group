@@ -12,15 +12,16 @@ import java.nio.channels.FileChannel;
  */
 public class FileChannel04 {
     public static void main(String[] args) throws Exception {
-        FileInputStream fileInputStream=new FileInputStream("C:\\test\\testFile\\1.txt");
+        FileInputStream fileInputStream=new FileInputStream("C:\\test\\testFile\\1.jpg");
         FileChannel channel1 = fileInputStream.getChannel();
 
-        FileOutputStream fileOutputStream=new FileOutputStream("C:\\test\\testFile\\3.txt");
+        FileOutputStream fileOutputStream=new FileOutputStream("C:\\test\\testFile\\2.jpg");
         FileChannel channel2 = fileOutputStream.getChannel();
 
         //将channel1拷贝到channel2中
         channel2.transferFrom(channel1,0,channel1.size());
 
+        //关闭
         channel1.close();
         channel2.close();
         fileInputStream.close();
