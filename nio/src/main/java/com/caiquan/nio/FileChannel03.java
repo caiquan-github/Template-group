@@ -18,7 +18,8 @@ public class FileChannel03 {
 
         ByteBuffer byteBuffer=ByteBuffer.allocate(1);
         while (true){
-            //清空buffer 重要的方法
+            //清空buffer 重要的方法 必须要加上
+            //如果不清空buffer 则 channel.read() 返回值不会等于-1 造成死循环
             byteBuffer.clear();
 
             int read = channel.read(byteBuffer);
