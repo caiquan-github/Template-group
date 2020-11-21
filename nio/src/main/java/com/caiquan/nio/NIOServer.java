@@ -86,11 +86,9 @@ public class NIOServer {
                     System.out.println("form 客户端 "+ new String(byteBuffer.array()));
                     byteBuffer.clear();
                 }
-
-                //重要！ 手动从集合中移除当前的selectedKey  ,防止重复操作
-                keyIterator.remove();
             }
-
+            //重要！ 手动从集合中移除当前的selectedKey  ,防止重复操作 注意实在while之外
+            keyIterator.remove();
 
         }
 
