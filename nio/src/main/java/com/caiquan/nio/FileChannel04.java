@@ -21,6 +21,7 @@ public class FileChannel04 {
         //将channel1拷贝到channel2中
         channel2.transferFrom(channel1,0,channel1.size());
 
+
         //关闭
         channel1.close();
         channel2.close();

@@ -24,7 +24,7 @@ public class NioTest {
         FileChannel inChannel=fi.getChannel();
         FileChannel outChannel=fo.getChannel();
         //获得容器buffer
-        ByteBuffer buffer=ByteBuffer.allocate(1024);
+        bytebuffer buffer=ByteBuffer.allocate(1024);
         while(true){
             //判断是否读完文件
             int eof =inChannel.read(buffer);
