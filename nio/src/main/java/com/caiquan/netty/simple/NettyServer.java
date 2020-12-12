@@ -32,7 +32,7 @@ public class NettyServer {
             //创建服务器端的启动对象，配置参数
             ServerBootstrap bootstrap = new ServerBootstrap();
             bootstrap.group(bossGroup, workerGroup) //设置两个线程组
-                    .channel(NioServerSocketChannel.class)
+                    .channel(NioServerSocketChannel.class) //通道类型
                     .option(ChannelOption.SO_BACKLOG, 128) //设置线程队列等待连接个数
                     .childOption(ChannelOption.SO_KEEPALIVE, true) //设置保持活动连接状态
                     .childHandler(new ChannelInitializer<SocketChannel>() { //创建一个通道测试对象（匿名对象）
