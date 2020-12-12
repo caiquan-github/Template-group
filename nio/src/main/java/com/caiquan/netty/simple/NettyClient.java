@@ -10,15 +10,14 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 
 public class NettyClient {
     public static void main(String[] args) throws InterruptedException {
+        //创建一个事件循环组
         EventLoopGroup group = new NioEventLoopGroup();
         try {
-
-
-            Bootstrap bootstrap = new Bootstrap();
-
-            bootstrap.group(group)
-                    .channel(NioSocketChannel.class)
-                    .handler(new ChannelInitializer<SocketChannel>() {
+            //创建客户端启动对象
+            Bootstrap bootstrap = new Bootstrap()
+                    .group(group) //指定事件循环组
+                    .channel(NioSocketChannel.class) //指定通道类型
+                    .handler(new ChannelInitializer<SocketChannel>() { //增加一个处理
                         @Override
                         protected void initChannel(SocketChannel socketChannel) throws Exception {
                             socketChannel.pipeline().addLast(new NettyClientHandler());
