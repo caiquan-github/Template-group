@@ -19,7 +19,7 @@ public class TestServer {
                     .channel(NioServerSocketChannel.class)
                     .childHandler(new TestServerInitializer());
 
-            ChannelFuture channelFuture = serverBootstrap.bind(6668).sync();
+            ChannelFuture channelFuture = serverBootstrap.bind(8080).sync();
 
 
             //对关闭通道进行监听  这里只是对关闭通道这个事件进行监听 非关闭通道
