@@ -30,10 +30,10 @@ public class TestHttpServerHandler extends SimpleChannelInboundHandler<HttpObjec
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, HttpObject httpObject) throws Exception {
 
-
-
         //判断 msg 是不是 httprequest
         if (httpObject instanceof HttpRequest){
+            System.out.println("pipeline hashcode:" + channelHandlerContext.pipeline().hashCode());
+            System.out.println("handler hashcode :" + this.hashCode());
             System.out.println("msg 类型="+httpObject.getClass());
             System.out.println("客户端地址:"+channelHandlerContext.channel().remoteAddress());
 
