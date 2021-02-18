@@ -18,6 +18,7 @@ public class TestServer {
                     .channel(NioServerSocketChannel.class)
                     .childHandler(new TestServerInitializer());
 
+            //请不要使用 6000 开头的端口 因为浏览器访问会直接认为不安全
             ChannelFuture channelFuture = serverBootstrap.bind(8080).sync();
 
 
