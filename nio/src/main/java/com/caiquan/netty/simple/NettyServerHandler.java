@@ -20,6 +20,12 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
     /**
      * //读取数据事件 这里我们可以读取客户端发送的消息
      *
+<<<<<<< Updated upstream
+=======
+     * 读取数据事件 这里我们可以读取客户端发送的消息
+     * @author Kwon
+     * @date 2020/12/6 18:40
+>>>>>>> Stashed changes
      * @param ctx 上下文对象，含有 管道pipeline，通道channel，地址
      * @param msg 客户端发送过来的数据
      * @return

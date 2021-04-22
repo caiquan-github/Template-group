@@ -18,7 +18,7 @@ public class FileChannel02 {
      */
     public static void main(String[] args) throws  Exception{
         //创建文件输入流
-        File file=new File("D:\\Filetest\\01.txt");
+        File file=new File("C:\\test\\01.txt");
         FileInputStream fileInputStream=new FileInputStream(file);
 
         //获得通道
