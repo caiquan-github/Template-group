@@ -2,10 +2,12 @@ package com.caiquan.spring.controler;
 
 import com.caiquan.spring.controler.face.HelloControllerFace;
 import com.caiquan.spring.controler.face.HelloControllerFace2;
+import com.caiquan.spring.dto.TestDto;
 import com.caiquan.spring.service.HelloService;
 import com.caiquan.spring.service.WorkService;
 import com.caiquan.spring.threadPool.ThreadPool;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Description:
  * @date 2020/3/2322:15
  */
-@RestController
+@RestController("hello")
 public class HelloController implements HelloControllerFace2 {
     @Autowired
     HelloService helloServiceImpl;
@@ -31,6 +33,13 @@ public class HelloController implements HelloControllerFace2 {
     @Override
     public String test(@PathVariable("value")String value){
         return value;
+    }
+
+    @GetMapping("test")
+    public String testet(TestDto testDto){
+        testDto.toString();
+        System.out.println(testDto.getTestValue());
+        return "";
     }
 
 
