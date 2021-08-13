@@ -36,7 +36,7 @@ public class MybatisTest {
         users.forEach(System.out::println);
 
 
-    }
+}
 
 
     @Test
@@ -85,5 +85,10 @@ public class MybatisTest {
         userIPage1.getRecords().forEach(System.out::println);
     }
 
+    @Test
+    public void testFind(){
+        List<User> users = userMapper.selectByAge(21);
+        users.forEach(System.out::println);
+    }
 
 }
