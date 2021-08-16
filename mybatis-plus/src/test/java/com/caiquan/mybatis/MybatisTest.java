@@ -41,13 +41,9 @@ public class MybatisTest {
 
     @Test
     public void testUpdate() {
-        User user = new User();
-        user.setName("tom2").setAge(21).setEmail("tom@163.com");
-        if (userService.save(user)) {
-            userService.list().forEach(System.out::println);
-        } else {
-            System.out.println("添加数据失败");
-        }
+        User user = userMapper.selectById(1);
+        user.setName("tom2").setAge(213).setEmail("1313@163.com");
+        userService.updateById(user);
     }
 
     @Test

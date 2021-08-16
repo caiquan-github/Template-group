@@ -1,9 +1,10 @@
 package com.caiquan.mybatis.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import com.caiquan.mybatis.entity.User;
+import com.caiquan.mybatis.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
@@ -16,6 +17,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/user")
 public class UserController {
+    @Autowired
+    private UserService userService;
 
+    @PostMapping
+    private boolean save(@RequestBody User user){
+        return userService.saveOrUpdate(user);
+    }
+
+    @GetMapping
+    private User find(Integer id){
+        return userService.getById(id);
+    }
 }
 
