@@ -4,6 +4,7 @@ package com.caiquan.mybatis.controller;
 import com.caiquan.mybatis.entity.User;
 import com.caiquan.mybatis.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -21,12 +22,16 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    private boolean save(@RequestBody User user){
+    public boolean save(@RequestBody User user){
         return userService.saveOrUpdate(user);
     }
 
     @GetMapping
-    private User find(Integer id){
+    @Transactional
+    public User find(Integer id) throws InterruptedException {
+        System.out.println(userService.getById(id).getName());
+        Thread.sleep(10000);
+        System.out.println(userService.getById(id).getName());
         return userService.getById(id);
     }
 }
