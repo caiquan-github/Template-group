@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * <p>
  *  前端控制器
@@ -33,6 +35,15 @@ public class UserController {
         Thread.sleep(10000);
         System.out.println(userService.getById(id).getName());
         return userService.getById(id);
+    }
+
+    @GetMapping("s")
+    @Transactional
+    public List<User> finds() throws InterruptedException {
+        System.out.println(userService.getBaseMapper().selectList(null));
+        Thread.sleep(20000);
+        System.out.println(userService.getBaseMapper().selectList(null));
+        return userService.getBaseMapper().selectList(null);
     }
 }
 
