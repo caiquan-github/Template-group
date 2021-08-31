@@ -32,6 +32,9 @@ public class TestHttpServerHandler extends SimpleChannelInboundHandler<HttpObjec
 
         //判断 msg 是不是 httprequest
         if (httpObject instanceof HttpRequest){
+            // TODO: 2021/9/1  这里有个很奇怪的问题 按照正常来说 每一次请求对应的pipeline与handler应该是不同的，
+            //  但是我用apple safari浏览器刷新请求发现竟然是一样的，谷歌浏览器不一样
+            
             System.out.println("pipeline hashcode:" + channelHandlerContext.pipeline().hashCode());
             System.out.println("handler hashcode :" + this.hashCode());
             System.out.println("msg 类型="+httpObject.getClass());
