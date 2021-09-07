@@ -35,7 +35,5 @@ public class NettyClient {
             //优雅关闭
             group.shutdownGracefully();
         }
-
-
     }
 }

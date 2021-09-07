@@ -24,7 +24,7 @@ public class GroupChatClient {
 
         selector = Selector.open();
         //连接服务器
-        socketChannel = socketChannel.open(new InetSocketAddress("127.0.0.1", PORT));
+        socketChannel = SocketChannel.open(new InetSocketAddress("127.0.0.1", PORT));
         //设置非阻塞
         socketChannel.configureBlocking(false);
         //将channel 注册到selector
@@ -89,11 +89,12 @@ public class GroupChatClient {
 
         //启动一个线程, 每个3秒，读取从服务器发送数据
         new Thread() {
+            @Override
             public void run() {
                 while (true) {
                     chatClient.readInfo();
                     try {
-                        Thread.currentThread().sleep(3000);
+                        sleep(3000);
                     }catch (InterruptedException e) {
                         e.printStackTrace();
                     }

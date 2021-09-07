@@ -18,7 +18,7 @@ public class FileChannel01 {
     public static void main(String[] args) throws IOException {
         String str= "hello world";
         //创建一个输出流
-        FileOutputStream fileOutputStream = new FileOutputStream("D:\\Filetest\\01.txt");
+        FileOutputStream fileOutputStream = new FileOutputStream("C:\\test\\01.txt");
         //通过输出流获得通道
         //这个fileChannel是一个抽象类型，实现类为FileChannelImpl
         FileChannel fileChannel = fileOutputStream.getChannel();
@@ -36,8 +36,5 @@ public class FileChannel01 {
 
         //关闭
         fileOutputStream.close();
-
-
-
     }
 }
