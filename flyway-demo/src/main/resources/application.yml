@@ -1,0 +1,51 @@
+server:
+  port: 12892
+
+spring:
+  #数据库连接配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.174.100:3306/ssm-demo?characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+  flyway:
+    ## 是否启用flyway
+    enabled: true
+    ## 编码格式，默认UTF-8
+    encoding: UTF-8
+    ## 迁移sql脚本文件存放路径，默认db/migration
+    locations: classpath:db/migration
+    ## 迁移sql脚本文件名称的前缀，默认V
+    sql-migration-prefix: V
+    ## 迁移sql脚本文件名称的分隔符，默认2个下划线__
+    sql-migration-separator: __
+    ## 迁移sql脚本文件名称的后缀
+    sql-migration-suffixes: .sql
+    ## 迁移时是否进行校验，默认true
+    validate-on-migrate: true
+    ## 当迁移发现数据库非空且存在没有元数据的表时，自动执行基准迁移，新建schema_version表
+    baseline-on-migrate: true
+
+
+#mybatis的相关配置
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.springboottemplate.entity #配置xml文件中resultType返回值的包位置
+  #开启驼峰命名
+  configuration:
+    map-underscore-to-camel-case: true
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  pageSizeZero: false #pageSize=0
+
+# 通用mapper配置
+mapper:
+  mappers: com.example.springboottemplate.util.MyMapper
+  not-empty: false
+  identity: MYSQL
+
+# flyway 配置
