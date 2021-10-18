@@ -1,21 +1,27 @@
+#spring:
+#  application:
+#    name: service-consumer
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 192.168.174.103:8848
+#    sentinel:
+#      transport:
+#        dashboard: 192.168.174.103:8080
+#server:
+#  port: 9002
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#feign:
+#  sentinel:
+#    enabled: true
+
 spring:
-  application:
-    name: service-consumer
   cloud:
     nacos:
-      discovery:
-        server-addr: 127.0.0.1:8848
-    sentinel:
-      transport:
-        port: 8719
-        dashboard: 127.0.0.1:8080
-server:
-  port: 9002
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-feign:
-  sentinel:
-    enabled: true
+      config:
+        shared-dataids: service-common-config.yaml,service-consumer-config.yaml
+        server-addr: 192.168.174.103:8848

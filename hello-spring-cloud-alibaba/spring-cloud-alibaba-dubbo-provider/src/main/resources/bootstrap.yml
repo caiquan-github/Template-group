@@ -1,14 +1,26 @@
+#spring:
+#  application:
+#    name: service-provider
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 192.168.174.103:8848
+#    sentinel:
+#      transport:
+#        dashboard: 192.168.174.103:8080
+#server:
+#  port: 9001
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+
+
 spring:
-  application:
-    name: service-provider
   cloud:
     nacos:
-      discovery:
-        server-addr: 127.0.0.1:8848
-server:
-  port: 9001
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
+      config:
+        file-extension: yaml
+        server-addr: 192.168.174.103:8848
+        name: service-provider-config

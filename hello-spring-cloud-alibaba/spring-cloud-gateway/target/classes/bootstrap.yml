@@ -4,21 +4,21 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
+        server-addr: 192.168.174.103:8848
     sentinel:
       transport:
-        dashboard: 127.0.0.1:8080
+        port: 8719
+        dashboard: 192.168.174.103:8080
     gateway:
       discovery:
         locator:
           enabled: true
       routes:
-        - id: c1
-          uri: lb://service-provider
+        - id: routes
+          uri: lb://service-consumer
           predicates:
             - Method=GET,POST
-            - Path=/haha/**
-
+            - Path=/chello/**
 server:
   port: 9000
 feign:
