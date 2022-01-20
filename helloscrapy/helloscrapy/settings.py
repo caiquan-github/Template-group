@@ -18,10 +18,13 @@ NEWSPIDER_MODULE = 'helloscrapy.spiders'
 
 # Obey robots.txt rules
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
-DOWNLOAD_DELAY = 0.5
+ROBOTSTXT_OBEY = True # 遵守robots.txt 的规则
+DOWNLOAD_DELAY = 0.5 #每次请求间隔0.5秒
+
+FEED_EXPORT_ENCODING = 'utf-8' # 编码
 
 
+# 数据库配置 这个是由自己读取
 mysql_movie = {
     'host': "192.168.29.128",
     "port": 3306,
@@ -30,6 +33,7 @@ mysql_movie = {
     "db": "myscrapy"
 }
 
+# pipeline 注册
 ITEM_PIPELINES = {
     'helloscrapy.pipelines.BaseInfoPipeline': 300,
     'helloscrapy.pipelines.CommentPipeline': 400
