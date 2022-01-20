@@ -1,0 +1,3 @@
+create table movie1(id int auto_increment primary key, name varchar(255),comment varchar(255) )default charset=utf8;
+
+create table movie(id int auto_increment primary key, name varchar(255),rating varchar(10), quote varchar(255))default charset=utf8;
