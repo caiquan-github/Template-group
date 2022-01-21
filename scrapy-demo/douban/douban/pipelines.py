@@ -11,6 +11,7 @@ import os
 from scrapy.pipelines.images import ImagesPipeline
 from scrapy.exceptions import DropItem
 from scrapy import Request
+from urllib.parse import urlparse
 
 
 class DoubanImgDownloadPipeline(ImagesPipeline):
@@ -40,6 +41,11 @@ class DoubanImgDownloadPipeline(ImagesPipeline):
         item['download_time'] = time.time()
 
         return item
+
+    # 设置储存路径
+    # 默认情况下 file_path() 方法返回 full/<request URL hash>.<extension> .
+    def file_path(self, request, response=None, info=None, *, item=None):
+        return 'files/' + os.path.basename(urlparse(request.url).path)
 
 
 class DoubanItemPipeline:
