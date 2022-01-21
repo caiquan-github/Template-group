@@ -80,7 +80,7 @@ class DoubanFilePipeline(FilesPipeline):
         filename='C:\\test\\douban\\files\\' + hashlib.sha1(to_bytes(request.url)).hexdigest() + '.webp'
         with open(filename, 'wb') as f:
             f.write(buf.getvalue())
-
+        f.close()
         # md5格式
         checksum = md5sum(buf)
         buf.seek(0)
@@ -89,6 +89,7 @@ class DoubanFilePipeline(FilesPipeline):
     def item_completed(self, results, item, info):
         # 获取 md5data
         checksum = results[0][1].get('checksum')
+        return item
 
 
 class DoubanItemPipeline:
