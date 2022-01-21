@@ -55,6 +55,7 @@ class DoubanImgDownloadPipeline(ImagesPipeline):
         return 'files/' + os.path.basename(urlparse(request.url).path)
 
 
+
 # 获取字节码的自定义存储方式
 class DoubanFilePipeline(FilesPipeline):
     default_headers = {
@@ -84,6 +85,10 @@ class DoubanFilePipeline(FilesPipeline):
         checksum = md5sum(buf)
         buf.seek(0)
         return checksum
+
+    def item_completed(self, results, item, info):
+        # 获取 md5data
+        checksum = results[0][1].get('checksum')
 
 
 class DoubanItemPipeline:
