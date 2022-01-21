@@ -40,6 +40,6 @@ class Douban(Spider):
             yield item
 
         next = response.xpath('//*[@id="content"]/div[2]/div[1]/div[6]/span[3]/a')
-        path = next[0].xpath('@href')[0].extract()
         if next:
+            path = next[0].xpath('@href')[0].extract()
             yield Request(url=path, headers=self.default_headers, callback=self.parse)

@@ -23,11 +23,13 @@ class DoubanImgDownloadPipeline(ImagesPipeline):
         'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36',
     }
 
+    # 下载图片
     def get_media_requests(self, item, info):
         for image_url in item['image_urls']:
             self.default_headers['referer'] = image_url
             yield Request(image_url, headers=self.default_headers)
 
+    # 处理完的后续，一般把item传给下一个pipeline
     def item_completed(self, results, item, info):
         image_paths = [x['path'] for ok, x in results if ok]
 
@@ -40,7 +42,7 @@ class DoubanImgDownloadPipeline(ImagesPipeline):
         return item
 
 
-class DoubanItemPipeline():
+class DoubanItemPipeline:
 
     def __init__(self, images_store):
         self.images_store = images_store
@@ -48,6 +50,7 @@ class DoubanItemPipeline():
         self.handler = open(self.file_name, 'w')
 
     def process_item(self, item, spider):
+        # 往文件写入数据
         self.handler.write(json.dumps(dict(item)) + '\n')
 
         return item

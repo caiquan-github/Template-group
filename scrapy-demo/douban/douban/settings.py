@@ -65,9 +65,10 @@ ITEM_PIPELINES = {
     'douban.pipelines.DoubanItemPipeline': 301,
 }
 
-IMAGES_STORE = 'C:\\test'
+# 要以项目名为后缀 不然 DoubanImgDownloadPipeline 不生效
+IMAGES_STORE = 'C:\\test\\douban'
 
-IMAGES_EXPIRES = 90
+# IMAGES_EXPIRES = 90
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
