@@ -2,7 +2,6 @@ import scrapy
 
 from helloscrapy.items import DoubanItem
 
-
 class MovieSpider(scrapy.Spider):
     name = 'movie'
     allowed_domains = ['movie.douban.com/top250']
