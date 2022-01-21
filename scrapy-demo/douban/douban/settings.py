@@ -63,11 +63,13 @@ EXTENSIONS = {
 ITEM_PIPELINES = {
     'douban.pipelines.DoubanImgDownloadPipeline': 300,
     'douban.pipelines.DoubanItemPipeline': 301,
+    'douban.pipelines.DoubanFilePipeline': 302
+
 }
 
 # 要以项目名为后缀 不然 DoubanImgDownloadPipeline 不生效
-IMAGES_STORE = 'C:\\test\\douban'
-
+IMAGES_STORE = 'C:\\test\\douban\\images'
+FILES_STORE = 'C:\\test\\douban\\files'
 # IMAGES_EXPIRES = 90
 
 # Enable and configure the AutoThrottle extension (disabled by default)
