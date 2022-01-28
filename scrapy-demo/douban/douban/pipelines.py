@@ -81,7 +81,7 @@ class DoubanFilePipeline(FilesPipeline):
         with open(filename, 'wb') as f:
             f.write(buf.getvalue())
         f.close()
-        # md5格式
+        # Calculate the md5 checksum of a file-like object without reading its
         checksum = md5sum(buf)
         buf.seek(0)
         return checksum
