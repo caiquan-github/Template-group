@@ -4,6 +4,7 @@
 #
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
+import base64
 import hashlib
 import time
 import json
@@ -55,7 +56,6 @@ class DoubanImgDownloadPipeline(ImagesPipeline):
         return 'files/' + os.path.basename(urlparse(request.url).path)
 
 
-
 # 获取字节码的自定义存储方式
 class DoubanFilePipeline(FilesPipeline):
     default_headers = {
@@ -67,7 +67,7 @@ class DoubanFilePipeline(FilesPipeline):
         'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36',
     }
 
-    #发起请求
+    # 发起请求
     def get_media_requests(self, item, info):
         for image_url in item['image_urls']:
             self.default_headers['referer'] = image_url
@@ -77,10 +77,17 @@ class DoubanFilePipeline(FilesPipeline):
     def file_downloaded(self, response, request, info, *, item=None):
         # 获取字节码 存储文件
         buf = BytesIO(response.body)
-        filename='C:\\test\\douban\\files\\' + hashlib.sha1(to_bytes(request.url)).hexdigest() + '.webp'
-        with open(filename, 'wb') as f:
-            f.write(buf.getvalue())
-        f.close()
+        filename = 'C:\\test\\douban\\files\\' + hashlib.sha1(to_bytes(request.url)).hexdigest() + '.webp'
+
+        file = open(filename, 'wb')
+        bytes = buf.readlines()
+        file.writelines(bytes)
+        print('加密数据：'+base64.encode(bytes.decode()).hexdigest())
+
+        # with open(filename, 'wb') as f:
+        #     f.write(buf.getvalue())
+        # f.close()
+
         # Calculate the md5 checksum of a file-like object without reading its
         checksum = md5sum(buf)
         buf.seek(0)

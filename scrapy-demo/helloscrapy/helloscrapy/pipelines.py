@@ -9,8 +9,6 @@ from .settings import mysql_movie
 import pymysql
 
 
-
-
 class BaseInfoPipeline:
     def __init__(self):
         self.host = mysql_movie["host"]
