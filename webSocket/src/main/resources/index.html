@@ -1,0 +1,51 @@
+<html>
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>springboot项目WebSocket测试demo</title>
+</head>
+<body>
+<h3>springboot项目websocket测试demo</h3>
+<h4>测试说明</h4>
+<h5>文本框中数据数据，点击‘发送测试’，文本框中的数据会发送到后台websocket，后台接受到之后，会再推送数据到前端，展示在下方；点击关闭连接，可以关闭该websocket；可以跟踪代码，了解具体的流程；代码上有详细注解</h5>
+<br />
+<input id="text" type="text" />
+<button onclick="send()">发送测试</button>
+<hr />
+<button onclick="clos()">关闭连接</button>
+<hr />
+<div id="message"></div>
+<script>
+    var websocket = null;
+    if('WebSocket' in window){
+        websocket = new WebSocket("ws://127.0.0.1:9999/webSocket/1");
+    }else{
+        alert("您的浏览器不支持websocket");
+    }
+    websocket.onerror = function(){
+        setMessageInHtml("send error！");
+    }
+    websocket.onopen = function(){
+        setMessageInHtml("连接成功！")
+        setTimeout(function(){setMessageInHtml("欢迎来到这里！")
+        },2000)
+    }
+    websocket.onmessage = e => setMessageInHtml(e.data)
+    websocket.onclose = function(){
+        setMessageInHtml("连接断开！")
+    }
+    window.onbeforeunload = function(){
+        clos();
+    }
+    function setMessageInHtml(message){
+        document.getElementById('message').innerHTML += message+"</br>";
+    }
+    function clos(){
+        websocket.close(3000,"强制关闭");
+    }
+    function send(){
+        var msg = document.getElementById('text').value;
+        websocket.send(msg);
+    }
+</script>
+</body>
+</html>
