@@ -7,6 +7,7 @@ import javax.websocket.*;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -55,7 +56,7 @@ public class WebSocket {
     }
 
     @OnClose
-    public void close(@PathParam("page") String page, Session session) throws IOException {
+    public void close(@PathParam("page") String page, Session session) {
         // 如果某个用户离开了，就移除相应的信息
         if(roomMap.containsKey(page)){
             roomMap.get(page).remove(session);
@@ -63,7 +64,11 @@ public class WebSocket {
 
         // 给房间内所有用户推送信息
         for(Session s : roomMap.get(page)){
-            s.getBasicRemote().sendText("用户{"+session.getId()+"}退出聊天,房间人数:{"+roomMap.get(page).size()+"}");
+            try {
+                s.getBasicRemote().sendText("用户{"+session.getId()+"}退出聊天,房间人数:{"+roomMap.get(page).size()+"}");
+            }catch (IllegalStateException | IOException e){
+
+            }
         }
     }
 
@@ -71,7 +76,7 @@ public class WebSocket {
     public void reveiveMessage(@PathParam("page") String page, Session session,String message) throws IOException {
         log.info("接受到用户{}的数据:{}",session.getId(),message);
         // 拼接一下用户信息
-        String msg = session.getId()+" : "+ message;
+        String msg = "用户"+session.getId()+"   : "+ message;
         Set<Session> sessions = roomMap.get(page);
         // 给房间内所有用户推送信息
         for(Session s : sessions){
