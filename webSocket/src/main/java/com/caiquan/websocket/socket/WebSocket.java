@@ -11,7 +11,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArraySet;
-import java.util.concurrent.atomic.AtomicInteger;
 
 
 @Component
@@ -19,19 +18,25 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class WebSocket {
     private Logger log = LoggerFactory.getLogger(this.getClass());
 
-    /**
-     * 用来记录房间的人数
-     */
-    private static AtomicInteger onlinePersons = new AtomicInteger(0);
+
 
     /**
      * 用来记录房间及人数
      */
-    private static Map<String,Set> roomMap = new ConcurrentHashMap(8);
+    private static Map<String,Set<Session>> roomMap = new ConcurrentHashMap(8);
 
+    /**
+     *
+     *
+     * @param page 房间号
+     * @param session
+     * @return
+     * @author Kwon
+     * @date 2022/2/11 13:46
+     */
     @OnOpen
     public void open(@PathParam("page") String page, Session session) throws IOException {
-        Set set = roomMap.get(page);
+        Set<Session> set = roomMap.get(page);
         // 如果是新的房间，则创建一个映射，如果房间已存在，则把用户放进去
         if(set == null){
             set = new CopyOnWriteArraySet();
@@ -40,20 +45,26 @@ public class WebSocket {
         }else{
             set.add(session);
         }
-        // 房间人数+1
-        onlinePersons.incrementAndGet();
-        log.info("新用户{}进入聊天,房间人数:{}",session.getId(),onlinePersons);
+
+
+        // 给房间内所有用户推送信息
+        for(Session s : set){
+            s.getBasicRemote().sendText("新用户{"+session.getId()+"}进入聊天,房间人数:{"+set.size()+"}");
+        }
+
     }
 
     @OnClose
-    public void close(@PathParam("page") String page, Session session){
+    public void close(@PathParam("page") String page, Session session) throws IOException {
         // 如果某个用户离开了，就移除相应的信息
         if(roomMap.containsKey(page)){
             roomMap.get(page).remove(session);
         }
-        // 房间人数-1
-        onlinePersons.decrementAndGet();
-        log.info("用户{}退出聊天,房间人数:{}",session.getId(),onlinePersons);
+
+        // 给房间内所有用户推送信息
+        for(Session s : roomMap.get(page)){
+            s.getBasicRemote().sendText("用户{"+session.getId()+"}退出聊天,房间人数:{"+roomMap.get(page).size()+"}");
+        }
     }
 
     @OnMessage

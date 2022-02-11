@@ -26,8 +26,7 @@
     }
     websocket.onopen = function(){
         setMessageInHtml("连接成功！")
-        setTimeout(function(){setMessageInHtml("欢迎来到这里！")
-        },2000)
+        setMessageInHtml("欢迎来到这里！")
     }
     websocket.onmessage = e => setMessageInHtml(e.data)
     websocket.onclose = function(){
