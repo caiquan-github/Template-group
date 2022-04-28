@@ -20,7 +20,7 @@ from urllib.parse import urlparse
 
 from scrapy.utils.misc import md5sum
 from scrapy.utils.python import to_bytes
-
+from .settings import FILES_STORE
 
 class DoubanImgDownloadPipeline(ImagesPipeline):
     default_headers = {
@@ -77,7 +77,7 @@ class DoubanFilePipeline(FilesPipeline):
     def file_downloaded(self, response, request, info, *, item=None):
         # 获取字节码 存储文件
         buf = BytesIO(response.body)
-        filename = 'C:\\test\\douban\\files\\' + hashlib.sha1(to_bytes(request.url)).hexdigest() + '.webp'
+        filename = FILES_STORE+'\\' + hashlib.sha1(to_bytes(request.url)).hexdigest() + '.webp'
 
         file = open(filename, 'wb')
         bytes = buf.readlines()

@@ -14,6 +14,27 @@ BOT_NAME = 'douban'
 SPIDER_MODULES = ['douban.spiders']
 NEWSPIDER_MODULE = 'douban.spiders'
 
+
+EXTENSIONS = {
+    'scrapy.extensions.telnet.TelnetConsole': None,
+}
+
+# Configure item pipelines
+# See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
+ITEM_PIPELINES = {
+    'douban.pipelines.DoubanImgDownloadPipeline': 300,
+    'douban.pipelines.DoubanItemPipeline': 301,
+    'douban.pipelines.DoubanFilePipeline': 302
+
+}
+
+# 要以项目名为后缀 不然 DoubanImgDownloadPipeline 不生效
+# 这个是images pipeline使用到的默认参数变量
+IMAGES_STORE = 'D:\\test\\douban\\images'
+#这个是自定义参数变量
+FILES_STORE = 'D:\\test\\douban\\files'
+# IMAGES_EXPIRES = 90
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = 'douban (+http://www.yourdomain.com)'
 
@@ -54,23 +75,6 @@ NEWSPIDER_MODULE = 'douban.spiders'
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
-EXTENSIONS = {
-    'scrapy.extensions.telnet.TelnetConsole': None,
-}
-
-# Configure item pipelines
-# See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-    'douban.pipelines.DoubanImgDownloadPipeline': 300,
-    'douban.pipelines.DoubanItemPipeline': 301,
-    'douban.pipelines.DoubanFilePipeline': 302
-
-}
-
-# 要以项目名为后缀 不然 DoubanImgDownloadPipeline 不生效
-IMAGES_STORE = 'C:\\test\\douban\\images'
-FILES_STORE = 'C:\\test\\douban\\files'
-# IMAGES_EXPIRES = 90
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
