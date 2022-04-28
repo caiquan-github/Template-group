@@ -82,7 +82,10 @@ class DoubanFilePipeline(FilesPipeline):
         file = open(filename, 'wb')
         bytes = buf.readlines()
         file.writelines(bytes)
-        print('加密数据：'+base64.encode(bytes.decode()).hexdigest())
+
+        # todo 获取base64失败
+        #base64_bytes = base64.encode(bytes.decode()).hexdigest()
+        #print('加密数据：'+base64_bytes)
 
         # with open(filename, 'wb') as f:
         #     f.write(buf.getvalue())
