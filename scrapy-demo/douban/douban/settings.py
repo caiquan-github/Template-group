@@ -36,9 +36,9 @@ FILES_STORE = 'D:\\test\\douban\\files'
 # IMAGES_EXPIRES = 90
 
 # ROBOTSTXT_OBEY = True # 遵守robots.txt 的规则
-DOWNLOAD_DELAY = 0.5 #每次请求间隔0.5秒
+DOWNLOAD_DELAY = 3 #每次请求间隔x秒
 
-FEED_EXPORT_ENCODING = 'utf-8' # 编码
+# FEED_EXPORT_ENCODING = 'utf-8' # 编码
 
 
 

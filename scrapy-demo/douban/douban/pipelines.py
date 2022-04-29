@@ -76,29 +76,32 @@ class DoubanFilePipeline(FilesPipeline):
     # 获取字节码 以及 md5
     def file_downloaded(self, response, request, info, *, item=None):
         # 获取字节码 存储文件
+
+        # 获取response响应体的字节码
         buf = BytesIO(response.body)
+        # 要储存的地方
         filename = FILES_STORE+'\\' + hashlib.sha1(to_bytes(request.url)).hexdigest() + '.webp'
-
+        # 创建这个文件
         file = open(filename, 'wb')
-        bytes = buf.readlines()
-        file.writelines(bytes)
+        # 读取 response响应体字节码到 byte_datya
+        with buf as f:
+            byte_data = f.read()
+            # 写入文件
+            file.write(byte_data)
 
-        # todo 获取base64失败
-        #base64_bytes = base64.encode(bytes.decode()).hexdigest()
-        #print('加密数据：'+base64_bytes)
-
-        # with open(filename, 'wb') as f:
-        #     f.write(buf.getvalue())
-        # f.close()
+        # 将字节转base64编码后的数据
+        base64_str = base64.b64encode(byte_data).decode("ascii")
+        print(base64_str)
+        file.close()
 
         # Calculate the md5 checksum of a file-like object without reading its
-        checksum = md5sum(buf)
-        buf.seek(0)
-        return checksum
+        # checksum = md5sum(buf)
+        # buf.seek(0)
+        return
 
     def item_completed(self, results, item, info):
         # 获取 md5data
-        checksum = results[0][1].get('checksum')
+        # checksum = results[0][1].get('checksum')
         return item
 
 
