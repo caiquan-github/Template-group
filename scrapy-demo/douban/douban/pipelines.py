@@ -94,10 +94,14 @@ class DoubanFilePipeline(FilesPipeline):
         print(base64_str)
         file.close()
 
+        # 对象里加上base64编码后的数据
+        #item['image_base64'] = base64_str
+
+
         # Calculate the md5 checksum of a file-like object without reading its
         # checksum = md5sum(buf)
         # buf.seek(0)
-        return
+        return base64_str
 
     def item_completed(self, results, item, info):
         # 获取 md5data
