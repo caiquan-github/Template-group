@@ -5,7 +5,7 @@ spring:
   #数据库连接配置
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.174.100:3306/ssm-demo?characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+    url: jdbc:mysql://192.168.29.129:3306/ssm-demo?characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
     username: root
     password: 123456
   flyway:
@@ -23,8 +23,8 @@ spring:
     sql-migration-suffixes: .sql
     ## 迁移时是否进行校验，默认true
     validate-on-migrate: true
-    ## 当迁移发现数据库非空且存在没有元数据的表时，自动执行基准迁移，新建schema_version表
-    baseline-on-migrate: true
+    ## 当迁移发现数据库非空且存在没有元数据的表时，自动执行基准迁移，新建flyway_schema_history表   这代表如果这张表被删除 那么所有数据库将被格式化 建议使用false
+    baseline-on-migrate: false
 
 
 #mybatis的相关配置
