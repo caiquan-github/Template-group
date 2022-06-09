@@ -23,8 +23,11 @@ spring:
     sql-migration-suffixes: .sql
     ## 迁移时是否进行校验，默认true
     validate-on-migrate: true
-    ## 当迁移发现数据库非空且存在没有元数据的表时，自动执行基准迁移，新建flyway_schema_history表   这代表如果这张表被删除 那么所有数据库将被格式化 建议使用false
-    baseline-on-migrate: false
+    ## 当迁移发现数据库非空且存在没有元数据的表时，自动执行基准迁移，新建flyway_schema_history表   这跟版本有关系 V0开头的版本数据库脚本不会执行，但是V1版本的就会执行  下面一个配置是版本
+    baseline-on-migrate: true
+    # 版本
+    baseline-version: 1
+
 
 
 #mybatis的相关配置
