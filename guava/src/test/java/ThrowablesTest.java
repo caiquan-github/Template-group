@@ -67,5 +67,4 @@ public class ThrowablesTest {
 }
 class InvalidInputException extends Exception {
 }
-//更多请阅读：https://www.yiibai.com/guava/guava_throwables_class.html
 
