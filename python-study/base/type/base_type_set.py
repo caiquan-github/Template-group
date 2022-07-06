@@ -36,20 +36,20 @@ thisset.remove("Taobao")
 print(thisset)
 
 thisset.discard("Facebook")  # 不存在不会报错
-#thisset.remove("Facebook")   # 不存在会发生错误
+# thisset.remove("Facebook")   # 不存在会发生错误
 
 print(thisset.pop())
 
-#计算集合元素个数
+# 计算集合元素个数
 thisset = set(("Google", "W3Cschool", "Taobao"))
 print(len(thisset))
 
-#清空
+# 清空
 thisset = set(("Google", "W3cschool", "Taobao"))
 thisset.clear()
 print(thisset)
 
-#判断是否存在
+# 判断是否存在
 thisset = set(("Google", "W3Cschool", "Taobao"))
 print("W3Cschool" in thisset)
 print("Facebook" in thisset)
