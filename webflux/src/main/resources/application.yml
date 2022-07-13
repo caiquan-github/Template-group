@@ -1,0 +1,9 @@
+spring:
+  r2dbc:
+    url: r2dbc:mysql://192.168.29.129:3306/ds0?serverTimezone=GMT&characterEncoding=UTF-8
+    username: root
+    password: 123456
+    name: r2dbc
+    pool:
+      validation-query: SELECT 1
+      enabled: true
