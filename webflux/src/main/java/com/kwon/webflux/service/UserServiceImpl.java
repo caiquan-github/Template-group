@@ -19,6 +19,7 @@ public class UserServiceImpl {
      * @return
      */
     public Flux<User> findAll() {
+
         return adRepository.findAll();
     }
 }
