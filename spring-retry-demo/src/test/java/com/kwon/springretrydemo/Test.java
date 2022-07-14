@@ -1,0 +1,24 @@
+package com.kwon.springretrydemo;
+
+import com.kwon.springretrydemo.service.RetryService;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+/**
+ * @author Kwon
+ */
+
+@SpringBootTest
+@RunWith(SpringRunner.class)
+public class Test {
+    @Autowired
+    private RetryService retryService;
+
+
+    @org.junit.jupiter.api.Test
+    public void Test(){
+        System.out.println(retryService.retry());
+    }
+}
