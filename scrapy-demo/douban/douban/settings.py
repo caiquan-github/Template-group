@@ -29,6 +29,12 @@ ITEM_PIPELINES = {
 
 }
 
+DOWNLOADER_MIDDLEWARES = {
+#    'myproxies.middlewares.MyCustomDownloaderMiddleware': 543,
+#      'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware':543,
+     'douban.middlewares.MyproxiesSpiderMiddleware':125
+}
+
 # 要以项目名为后缀 不然 DoubanImgDownloadPipeline 不生效
 # 这个是images pipeline使用到的默认参数变量
 IMAGES_STORE = 'D:\\test\\douban\\images'
@@ -41,8 +47,11 @@ DOWNLOAD_DELAY = 3 #每次请求间隔x秒
 
 # FEED_EXPORT_ENCODING = 'utf-8' # 编码
 
+IPPOOL=[
 
-
+    {"ipaddr":"121.206.5.221:19762"},
+    {"ipaddr":"223.240.209.210:16100"}
+]
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = 'douban (+http://www.yourdomain.com)'
