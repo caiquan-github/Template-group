@@ -38,3 +38,8 @@ for x in range(5):
         print('pass')
         pass
     print(x)
+
+for x in range(1, 5):
+    print(x)
+else:
+    print("正常循环后执行的代码:", x)
