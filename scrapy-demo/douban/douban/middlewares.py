@@ -1,5 +1,4 @@
 import random
-from scrapy import signals
 from douban.settings import ipPool, count
 import requests
 
@@ -23,7 +22,7 @@ def get_one_proxy():
     print('当前ip', ip, '-----', count['count'])
 
     # 如果循环大于某个值,就清理ip池,更换ip的内容
-    if count['count'] > 50:
+    if count['count'] > 200:
         append_proxy()
     # 每次访问,计数器+1
     count['count'] += 1
