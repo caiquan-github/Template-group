@@ -46,12 +46,9 @@ FILES_STORE = 'D:\\test\\douban\\files'
 DOWNLOAD_DELAY = 3 #每次请求间隔x秒
 
 # FEED_EXPORT_ENCODING = 'utf-8' # 编码
+count = {'count': 0}
+ipPool = []
 
-IPPOOL=[
-
-    {"ipaddr":"121.206.5.221:19762"},
-    {"ipaddr":"223.240.209.210:16100"}
-]
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = 'douban (+http://www.yourdomain.com)'
