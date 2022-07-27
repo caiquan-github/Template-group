@@ -9,3 +9,6 @@ spring:
     name: service-ribbon
   zipkin:
     base-url: http://127.0.0.1:9411
+feign:
+  hystrix:
+    enabled: true
