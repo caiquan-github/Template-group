@@ -19,6 +19,10 @@ public class Test {
 
     @org.junit.jupiter.api.Test
     public void Test(){
-        System.out.println(retryService.retry());
+        try {
+            System.out.println(retryService.retry());
+        }catch (RuntimeException e){
+            System.out.println("exce: " + e.getMessage());
+        }
     }
 }
