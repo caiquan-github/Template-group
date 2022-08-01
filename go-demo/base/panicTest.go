@@ -21,30 +21,22 @@ Recover
 迟函数中有效。在正常的执行过程中，调用recover会返回nil，并且没有其它任何效果。如果当前的goroutine陷入恐慌，
 调用recover可以捕获到panic的输入值，并且恢复正常的执行。
 */
-func recoverName() {
-	if r := recover(); r != nil {
-		fmt.Println("recovered from ", r)
-	}
-}
 
 func fullName(firstName *string, lastName *string) {
-	defer recoverName()
+	defer fmt.Println("defer 0")
 	if firstName == nil {
 		panic("runtime error: first name cannot be nil")
 	}
 	if lastName == nil {
-		//这里触发后 会触发 defer recoverName函数 然后下面代码不会执行了
 		panic("runtime error: last name cannot be nil")
 	}
-	//下面并不会执行
 	fmt.Printf("%s %s\n", *firstName, *lastName)
 	fmt.Println("returned normally from fullName")
 }
 
 func main() {
-	defer fmt.Println("deferred call in main")
+	defer fmt.Println("defer 1")
 	firstName := "Elon"
-	//这里不会报错 因为 recoverName函数处理了 panic
 	fullName(&firstName, nil)
 	fmt.Println("returned normally from main")
 }
