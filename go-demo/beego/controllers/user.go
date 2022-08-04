@@ -1,7 +1,9 @@
 package controllers
 
 import (
+	"fmt"
 	beego "github.com/beego/beego/v2/server/web"
+	"time"
 )
 
 type UserDb struct {
@@ -22,7 +24,15 @@ func (c *UserController) Get() {
 		"data": user,
 	}
 
+	go test()
 	c.ServeJSON() //对json进行序列化输出
 	c.StopRun()   //终止执行逻辑
 
+}
+
+func test() {
+	time.Sleep(20 * time.Second)
+
+	//会执行
+	fmt.Println("----------------")
 }
