@@ -5,7 +5,7 @@ import (
 )
 
 type UserDb struct {
-	Id   int    `json:"id" 	orm:"column(id)"`
+	Id   int    `json:"id" orm:"column(id)"`
 	Name string `json:"name"  orm:"column(name)"`
 	Psw  string `json:"psw"  orm:"column(psw)"`
 }
