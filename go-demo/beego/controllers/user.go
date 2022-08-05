@@ -33,6 +33,6 @@ func (c *UserController) Get() {
 func test() {
 	time.Sleep(20 * time.Second)
 
-	//会执行
+	//不一定会执行
 	fmt.Println("----------------")
 }
