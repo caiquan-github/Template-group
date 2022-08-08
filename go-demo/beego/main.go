@@ -18,7 +18,12 @@ func main() {
 	as, _ := fs.Sub(f, "views")
 	hi, _ := as.Open("index.tpl")
 	data1, _ := ioutil.ReadAll(hi)
+
 	fmt.Println(string(data1))
 	fmt.Println(data)
+
 	beego.Run()
 }
+
+//go:embed static
+var embededFiles embed.FS
