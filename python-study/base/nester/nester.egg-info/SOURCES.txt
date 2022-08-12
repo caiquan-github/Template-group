@@ -1,0 +1,8 @@
+LICENSE
+README.md
+nester.py
+pyproject.toml
+nester.egg-info/PKG-INFO
+nester.egg-info/SOURCES.txt
+nester.egg-info/dependency_links.txt
+nester.egg-info/top_level.txt
