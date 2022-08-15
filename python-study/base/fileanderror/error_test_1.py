@@ -1,7 +1,7 @@
 import os
 
+# 文件格式如果改变 那么代码也需要改变 我们无法准确的判断出文件的格式内容 无法保证后续是否出问题 所以换一种方式来解决 那就是异常捕获
 data_file_adder = 'book.txt'
-
 if os.path.exists(data_file_adder):
     data = open(data_file_adder)
 
@@ -20,5 +20,3 @@ if os.path.exists(data_file_adder):
     data.close()
 else:
     print('the data file  is missing !')
-
-# 文件格式如果改变 那么代码也需要改变 我们无法准确的判断出文件的格式内容 无法保证后续是否出问题 所以换一种方式来解决 那就是异常捕获
