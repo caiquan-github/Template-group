@@ -2,7 +2,7 @@ import os
 
 # 文件格式如果改变 那么代码也需要改变 我们无法准确的判断出文件的格式内容 无法保证后续是否出问题 所以换一种方式来解决 那就是异常捕获
 data_file_adder = 'book.txt'
-if os.path.exists(data_file_adder):
+try:
     data = open(data_file_adder)
 
     # 异常捕获
@@ -15,8 +15,8 @@ if os.path.exists(data_file_adder):
             print(role, end='')
             print(' said: ', end='')
             print(line_spoken, end='')
-        except:
+        except ValueError:
             pass  # 跳过
     data.close()
-else:
+except IOError:
     print('the data file  is missing !')
