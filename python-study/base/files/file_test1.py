@@ -1,7 +1,7 @@
 man = []
 other = []
 try:
-    data = open('ske1tch.txt', 'r')
+    data = open('sketch.txt', 'r')
     for item in data:
         try:
             (role, line_spoken) = item.split(':', 1)
@@ -12,18 +12,18 @@ try:
                 other.append(line_spoken)
         except ValueError:
             pass
-except IOError:
-    print('not file ')
+except IOError as err:
+    print('not file ', str(err))
 finally:
     print(locals())
     if 'data' in locals():
         data.close()
 
 try:
-    man_file = open('main_data.txt', 'w')
-    other_file = open('other_data.txt', 'w')
-    print(man, file=man_file)
-    print(other, file=other_file)
+    with open('main_data.txt', 'w') as man_file:
+        print(man, file=man_file)
+    with open('other_data.txt', 'w') as other_file:
+        print(other, file=other_file)
 except IOError:
     print('not file ')
 finally:
