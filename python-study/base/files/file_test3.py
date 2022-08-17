@@ -1,2 +1,4 @@
+import nester
+
 with open('main_data.txt') as data:
-    print(data.readline())
+    nester.print_lol(data, fn=man)

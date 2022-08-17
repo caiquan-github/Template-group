@@ -19,4 +19,3 @@ def test():
     print_lol(movies, 4)
 
 
-test()

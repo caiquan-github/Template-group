@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 [project]
 name = "caiquan-pypi-nester" #项目名称
-version = "1.4.0" #项目版本
+version = "1.4.1" #项目版本
 authors = [
   { name="caiquan-pypi", email="825911265@qq.com" },
 ]
