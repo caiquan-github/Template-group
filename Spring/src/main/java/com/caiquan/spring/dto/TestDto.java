@@ -9,10 +9,7 @@ package com.caiquan.spring.dto;
 public class TestDto {
     private String testValue;
 
-    public TestDto(String bas){
-        this.testValue=bas;
-        System.out.println("调用构造器");
-    }
+
 
     public String getTestValue() {
         return testValue;

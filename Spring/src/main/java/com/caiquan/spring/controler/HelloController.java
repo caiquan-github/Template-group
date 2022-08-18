@@ -36,10 +36,10 @@ public class HelloController implements HelloControllerFace2 {
     }
 
     @GetMapping("test")
-    public String testet(TestDto testDto){
+    public String testet(@RequestBody TestDto testDto){
         testDto.toString();
         System.out.println(testDto.getTestValue());
-        return "";
+        return testDto.getTestValue();
     }
 
 
