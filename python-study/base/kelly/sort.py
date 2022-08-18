@@ -16,3 +16,14 @@ print(james)
 print(julie)
 print(mikey)
 print(sarah)
+
+# 原地排序 直接改变原来的值
+data = [6, 3, 1, 2, 3, 5]
+data.sort()
+print(data)
+
+# 复制排序 复制内容 然后进行排序
+data = [6, 3, 1, 2, 3, 5]
+data1 = sorted(data)
+print(data)
+print(data1)
