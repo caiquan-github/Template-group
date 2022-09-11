@@ -5,6 +5,8 @@ import com.caiquan.spring.service.WorkService;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import java.beans.Transient;
+
 /**
  * @author Kwon
  * @Title:
@@ -19,6 +21,7 @@ public class HelloServiceImpl implements HelloService {
 //    public HelloServiceImpl(WorkService workService) { }
 
     @Override
+    @Transient
     public String hello() {
         return "str"+(vue++);
     }
