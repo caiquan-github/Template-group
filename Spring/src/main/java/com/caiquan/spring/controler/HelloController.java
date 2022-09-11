@@ -42,7 +42,7 @@ public class HelloController implements HelloControllerFace2 {
     @GetMapping("test")
     public String testet(TestDto testDto, HttpServletResponse response, HttpServletRequest request){
         System.out.println(testDto.getTestValue());
-        return "";
+        return testDto.getTestValue();
     }
 
     @GetMapping("testAopClass")
