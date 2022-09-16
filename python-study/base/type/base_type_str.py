@@ -32,3 +32,10 @@ str2 = "https://www.w3cschool.cn/"
 print(str2[:5])  # 也就是截取前五位
 # 截取域名
 print(str2[8:-1])  # 也就是截取第八位到倒数第一位
+
+str = '你好'
+print(str)
+bs = str.encode('gbk')
+print(str.encode('gbk'))
+print(b'\xc4\xe3\xba\xc3'.decode('gbk'))
+
