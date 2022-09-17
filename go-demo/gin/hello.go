@@ -1,14 +1,23 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"fmt"
+	"io/ioutil"
+	"net/http"
+)
+
+// http.ResponseWriter：代表响应，传递到前端的
+// *http.Request：表示请求，从前端传递过来的
+func sayHello(w http.ResponseWriter, r *http.Request) {
+	html, _ := ioutil.ReadFile("./template/hello.html")
+	_, _ = fmt.Fprintln(w, string(html))
+}
 
 func main() {
-	r := gin.Default()
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
-
-	r.Run() // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
+	http.HandleFunc("/hello", sayHello)
+	err := http.ListenAndServe(":9090", nil)
+	if err != nil {
+		fmt.Println("http server failed, err:%v \n", err)
+		return
+	}
 }
