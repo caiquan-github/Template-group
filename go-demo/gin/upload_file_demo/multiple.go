@@ -17,9 +17,9 @@ func main() {
 		form, _ := c.MultipartForm()
 		files := form.File["file"]
 
-		for index, file := range files {
+		for _, file := range files {
 			log.Println(file.Filename)
-			dst := fmt.Sprintf("D:/opt/test/%s_%d", file.Filename, index)
+			dst := fmt.Sprintf("D:/opt/test/%s", file.Filename)
 			// 上传文件到指定的目录
 			c.SaveUploadedFile(file, dst)
 		}
