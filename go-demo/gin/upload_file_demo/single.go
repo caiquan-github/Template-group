@@ -23,7 +23,7 @@ func main() {
 		}
 
 		log.Println(file.Filename)
-		dst := fmt.Sprintf("C:/tmp/%s", file.Filename)
+		dst := fmt.Sprintf("D:/opt/test/%s", file.Filename)
 		// 上传文件到指定的目录
 		c.SaveUploadedFile(file, dst)
 		c.JSON(http.StatusOK, gin.H{

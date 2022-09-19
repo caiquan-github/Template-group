@@ -19,7 +19,7 @@ func main() {
 
 		for index, file := range files {
 			log.Println(file.Filename)
-			dst := fmt.Sprintf("C:/tmp/%s_%d", file.Filename, index)
+			dst := fmt.Sprintf("D:/opt/test/%s_%d", file.Filename, index)
 			// 上传文件到指定的目录
 			c.SaveUploadedFile(file, dst)
 		}
