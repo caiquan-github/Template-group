@@ -39,3 +39,4 @@ bs = str.encode('gbk')
 print(str.encode('gbk'))
 print(b'\xc4\xe3\xba\xc3'.decode('gbk'))
 
+print(str.encode("unicode-escape"))
