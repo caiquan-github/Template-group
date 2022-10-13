@@ -6,9 +6,9 @@ var2 = "W3Cschool"
 
 # 取值
 str = "W3cschool"
-print(str[2:3])  # 使用截取方式，用正序进行截取
-print(str[2:-6])  # 使用截取方式，正序和倒序混合使用
-print(str[-7:-6])  # 使用截取方式，使用倒序进行截取
+print(str[2:3])  # 使用截取方式，用正序进行截取 c
+print(str[2:-6])  # 使用截取方式，正序和倒序混合使用 c
+print(str[-7:-6])  # 使用截取方式，使用倒序进行截取 c
 print(str[-7])  # 使用负索引获取单个字符C
 print(str[2])  # 使用正索引获取单个字符C
 
