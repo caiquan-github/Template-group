@@ -1,2 +1,6 @@
 server:
   port: 9401
+
+
+liteflow:
+  rule-source: config/flow.el.xml
