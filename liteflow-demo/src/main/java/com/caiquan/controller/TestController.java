@@ -18,7 +18,10 @@ public class TestController {
 
     @GetMapping("test")
     public String test() {
+        //每一次都加载规则 热刷新
+        flowExecutor.reloadRule();
         LiteflowResponse response = flowExecutor.execute2Resp("chain1", "arg");
+        flowExecutor.reloadRule();
         return "success";
     }
 }
