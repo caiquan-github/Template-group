@@ -6,6 +6,7 @@ type (
 	OrderReply {
 		Id   string `json:"id"`
 		Name string `json:"name"`
+		Dodo string `json:"dodo"`
 	}
 )
 service order {
