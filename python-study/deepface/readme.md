@@ -3,6 +3,7 @@
 # face_verification.py
 
 ​        https://github.com/serengil/deepface_models/releases/download/v1.0/facial_expression_model_weights.h5
+​        https://github.com/serengil/deepface_models/releases/download/v1.0/openface_weights.h5
 
 # facial_attribute_analysis.py
 
