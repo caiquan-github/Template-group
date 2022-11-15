@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -48,11 +49,11 @@ public class OrderServiceImpl implements OrderService {
                 .and(new Criteria("orderNo").is(order.getOrderNo())))
                 .setPageable(PageRequest.of(pageIndex, pageSize));
 
-        List<Order> orders = elasticsearchRestTemplate.queryForList(criteriaQuery, Order.class);
+        Page<Order> orders = elasticsearchRestTemplate.queryForPage(criteriaQuery, Order.class);
 
         PageResponse<Order> pageResponse = new PageResponse<Order>();
-        pageResponse.setTotal(orders.size());
-        pageResponse.setResult(orders);
+        pageResponse.setTotal(orders.getTotalElements());
+        pageResponse.setResult(orders.get().collect(Collectors.toList()));
         return pageResponse;
     }
 

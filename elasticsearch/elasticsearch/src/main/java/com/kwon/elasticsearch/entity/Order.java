@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 @Data
-@Document(indexName = "order", shards = 1, replicas = 1)
+@Document(indexName = "smp-order",type = "es-order")
 public class Order implements Serializable {
     @Id
     private Integer id;
