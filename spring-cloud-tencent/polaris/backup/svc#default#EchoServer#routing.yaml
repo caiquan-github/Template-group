@@ -1,0 +1,8 @@
+---
+code: 400301
+info: "not found service"
+type: "ROUTING"
+service:
+  name: "EchoServer"
+  namespace: "default"
+  revision: "da39a3ee5e6b4b0d3255bfef95601890afd80709"

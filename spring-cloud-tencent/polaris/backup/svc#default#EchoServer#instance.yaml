@@ -1,0 +1,46 @@
+---
+code: 200000
+info: "execute success"
+type: "INSTANCE"
+service:
+  name: "EchoServer"
+  namespace: "default"
+  metadata:
+    internal-auto-created: "true"
+  ports: ""
+  business: ""
+  department: ""
+  cmdb_mod1: ""
+  cmdb_mod2: ""
+  cmdb_mod3: ""
+  comment: ""
+  owners: "Polaris"
+  ctime: "2022-11-16 03:48:14"
+  mtime: "2022-11-16 03:48:14"
+  revision: "b2ea78ed1388328f02bd69ee87a29a79ed23e20f"
+  platform_id: ""
+instances:
+- id: "ad93a6615013e2b19cbdab0e4a9fe7e0f9ae96d7"
+  service: "EchoServer"
+  namespace: "default"
+  host: "192.168.244.1"
+  port: 28888
+  protocol: "http"
+  weight: 100
+  healthCheck:
+    type: "HEARTBEAT"
+    heartbeat:
+      ttl: 5
+  healthy: true
+  isolate: false
+  location: {}
+  metadata:
+    protocol: "http"
+    region: ""
+    zone: ""
+    campus: ""
+    internal-address: "192.168.244.1:28888"
+    internal-ip: "192.168.244.1"
+  mtime: "2022-11-16 05:48:09"
+  revision: "03a91dde87504df782a07098cb015313"
+  enableHealthCheck: true

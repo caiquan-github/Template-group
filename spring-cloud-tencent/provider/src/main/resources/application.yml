@@ -1,0 +1,15 @@
+server:
+  port: 28888
+spring:
+  application:
+    name: EchoServer
+
+  cloud:
+    polaris:
+      namespace: default # 配置注册命名空间
+      address: grpc://192.168.29.129:8091
+      discovery:
+        enabled: true
+      stat:
+        enabled: true
+        port: 28082

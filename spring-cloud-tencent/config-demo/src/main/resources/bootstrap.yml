@@ -1,0 +1,14 @@
+server:
+  port: 48084
+spring:
+  application:
+    name: ConfigExample
+  cloud:
+    polaris:
+      address: grpc://192.168.29.129:8091
+      namespace: default # 设置配置中心命名空间
+      config:
+        auto-refresh: true # auto refresh when config file changed
+        groups:
+          - name: ConfigExample # group name
+            files: [ "config/user.properties" ]
