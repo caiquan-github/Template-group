@@ -3126,3 +3126,8 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 2022-11-16 14:26:51.414 WARN [main :c.t.p.a.p.c.Extensions] router nearbyBasedRouter not found
 2022-11-16 14:26:51.414 WARN [main :c.t.p.a.p.c.Extensions] circuitBreaker plugin errorCount not found
 2022-11-16 14:26:51.414 WARN [main :c.t.p.a.p.c.Extensions] circuitBreaker plugin errorRate not found
+2022-11-16 14:40:42.023 INFO [SpringContextShutdownHook:c.t.p.d.c.a.DefaultProviderAPI] deregister instance InstanceDeregisterRequest{request=CommonProviderRequest{instanceID='null', namespace='default', service='EchoServer', token='null', host='192.168.244.1', port=28888, version='null', protocol='null', weight=null, priority=null, metadata=null, ttl=null, zone=null, region=null, campus=null}} succ
+2022-11-16 14:40:42.025 INFO [SpringContextShutdownHook:c.t.p.p.c.g.GrpcConnector] start to destroy connector grpc
+2022-11-16 14:40:43.015 INFO [SpringContextShutdownHook:c.t.p.d.c.a.DefaultProviderAPI] deregister instance InstanceDeregisterRequest{request=CommonProviderRequest{instanceID='null', namespace='default', service='EchoConsumer', token='null', host='192.168.244.1', port=38888, version='null', protocol='null', weight=null, priority=null, metadata=null, ttl=null, zone=null, region=null, campus=null}} succ
+2022-11-16 14:40:43.020 INFO [SpringContextShutdownHook:c.t.p.p.c.g.GrpcConnector] start to destroy connector grpc
+2022-11-16 14:40:43.966 INFO [SpringContextShutdownHook:c.t.p.p.c.g.GrpcConnector] start to destroy connector grpc
