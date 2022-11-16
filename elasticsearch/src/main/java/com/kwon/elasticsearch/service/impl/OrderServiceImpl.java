@@ -16,7 +16,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -51,16 +50,16 @@ public class OrderServiceImpl implements OrderService {
 
         Page<Order> orders = elasticsearchRestTemplate.queryForPage(criteriaQuery, Order.class);
 
-        PageResponse<Order> pageResponse = new PageResponse<Order>();
+        PageResponse<Order> pageResponse = new PageResponse();
         pageResponse.setTotal(orders.getTotalElements());
-        pageResponse.setResult(orders.get().collect(Collectors.toList()));
+        pageResponse.setResult(orders.getContent());
         return pageResponse;
     }
 
     @Override
     public PageResponse<Order> findAll(Integer pageIndex, Integer pageSize) {
         Page<Order> page = orderRepository.findAll(PageRequest.of(pageIndex, pageSize));
-        PageResponse<Order> pageResponse = new PageResponse<Order>();
+        PageResponse<Order> pageResponse = new PageResponse();
         pageResponse.setTotal(page.getTotalElements());
         pageResponse.setResult(page.getContent());
         return pageResponse;
@@ -69,7 +68,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public PageResponse<Order> findHighlight(Order order, Integer pageIndex, Integer pageSize) {
         if (order == null) {
-            PageResponse<Order> pageResponse = new PageResponse<Order>();
+            PageResponse<Order> pageResponse = new PageResponse();
             pageResponse.setTotal(0L);
             pageResponse.setResult(new ArrayList<>());
             return pageResponse;
