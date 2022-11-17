@@ -2,6 +2,7 @@ from deepface import DeepFace
 
 # 默认模型 VGG-Face
 verification = DeepFace.verify(img1_path="images/m1.jpeg", img2_path="images/m2.jpeg")
+print(type(verification))
 print(verification)
 
 # 尝试使用  OpenFace模型

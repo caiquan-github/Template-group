@@ -14,7 +14,6 @@ BOT_NAME = 'douban'
 SPIDER_MODULES = ['douban.spiders']
 NEWSPIDER_MODULE = 'douban.spiders'
 
-
 EXTENSIONS = {
     'scrapy.extensions.telnet.TelnetConsole': None,
 }
@@ -26,29 +25,27 @@ ITEM_PIPELINES = {
     'douban.pipelines.DoubanFilePipeline': 301,
     'douban.pipelines.DoubanItemPipeline': 302
 
-
 }
-
-DOWNLOADER_MIDDLEWARES = {
-#    'myproxies.middlewares.MyCustomDownloaderMiddleware': 543,
-#      'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware':543,
-     'douban.middlewares.MyproxiesSpiderMiddleware':125
-}
+#
+# DOWNLOADER_MIDDLEWARES = {
+#     #    'myproxies.middlewares.MyCustomDownloaderMiddleware': 543,
+#     #      'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware':543,
+#     'douban.middlewares.MyproxiesSpiderMiddleware': 125
+# }
 
 # 要以项目名为后缀 不然 DoubanImgDownloadPipeline 不生效
 # 这个是images pipeline使用到的默认参数变量
 IMAGES_STORE = 'D:\\test\\douban\\images'
-#这个是自定义参数变量
+# 这个是自定义参数变量
 FILES_STORE = 'D:\\test\\douban\\files'
 # IMAGES_EXPIRES = 90
 
 # ROBOTSTXT_OBEY = True # 遵守robots.txt 的规则
-DOWNLOAD_DELAY = 3 #每次请求间隔x秒
+DOWNLOAD_DELAY = 3  # 每次请求间隔x秒
 
 # FEED_EXPORT_ENCODING = 'utf-8' # 编码
 count = {'count': 0}
 ipPool = []
-
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = 'douban (+http://www.yourdomain.com)'

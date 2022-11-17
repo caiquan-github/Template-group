@@ -29,6 +29,7 @@ class Douban(Spider):
             yield Request(url=url, headers=self.default_headers, callback=self.parse)
 
     def parse(self, response):
+        # 循环该页面
         list_imgs = response.xpath('//div[@class="photolst clearfix"]//img/@src').extract()
 
         if not list_imgs:
