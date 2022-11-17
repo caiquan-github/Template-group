@@ -7,6 +7,7 @@ from ..items import JuejinItem
 class JiejinSpider(scrapy.Spider):
     name = 'juejin'
     allowed_domains = ['juejin.cn']
+    # 数据api接口
     start_urls = 'https://api.juejin.cn/recommend_api/v1/article/recommend_all_feed?aid=2608&uuid=7049991233455818248&spider=0'
 
     default_headers = {
@@ -35,6 +36,7 @@ class JiejinSpider(scrapy.Spider):
     }
 
     def start_requests(self):
+        #第一次请求
         yield Request(method='POST', url=self.start_urls, headers=self.default_headers, callback=self.parse,
                       body=json.dumps(self.payload))
 
@@ -48,9 +50,12 @@ class JiejinSpider(scrapy.Spider):
                 item['url'] = 'https://juejin.cn/post/' + i['item_info']['article_id']
                 yield item
 
+        #是否还有下一页
         next = res['has_more']
         if next:
+            #如果有 页码+1
             index = str(int(self.payload['cursor']) + 1)
             self.payload['cursor'] = index
+            #请求下一页
             yield Request(method='POST', url=self.start_urls, headers=self.default_headers, callback=self.parse,
                           body=json.dumps(self.payload))
