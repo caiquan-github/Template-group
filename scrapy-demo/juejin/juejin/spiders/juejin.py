@@ -36,7 +36,7 @@ class JiejinSpider(scrapy.Spider):
     }
 
     def start_requests(self):
-        #第一次请求
+        # 第一次请求
         yield Request(method='POST', url=self.start_urls, headers=self.default_headers, callback=self.parse,
                       body=json.dumps(self.payload))
 
@@ -50,12 +50,12 @@ class JiejinSpider(scrapy.Spider):
                 item['url'] = 'https://juejin.cn/post/' + i['item_info']['article_id']
                 yield item
 
-        #是否还有下一页
+        # 是否还有下一页
         next = res['has_more']
         if next:
-            #如果有 页码+1
+            # 如果有 页码+1
             index = str(int(self.payload['cursor']) + 1)
             self.payload['cursor'] = index
-            #请求下一页
+            # 请求下一页
             yield Request(method='POST', url=self.start_urls, headers=self.default_headers, callback=self.parse,
                           body=json.dumps(self.payload))
