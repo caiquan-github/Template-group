@@ -22,7 +22,7 @@ EXTENSIONS = {
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'douban.pipelines.DoubanImgDownloadPipeline': 300,
-    'douban.pipelines.DoubanFilePipeline': 301,
+    # 'douban.pipelines.DoubanFilePipeline': 301,
     'douban.pipelines.DoubanItemPipeline': 302
 
 }

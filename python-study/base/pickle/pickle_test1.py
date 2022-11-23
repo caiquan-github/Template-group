@@ -10,4 +10,4 @@ try:
 except IOError as err:
     print('file error ', err)
 
-
+print(__name__)

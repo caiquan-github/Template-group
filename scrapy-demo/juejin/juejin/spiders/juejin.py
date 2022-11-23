@@ -35,6 +35,7 @@ class JiejinSpider(scrapy.Spider):
         "limit": 20
     }
 
+
     def start_requests(self):
         # 第一次请求
         yield Request(method='POST', url=self.start_urls, headers=self.default_headers, callback=self.parse,

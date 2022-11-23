@@ -28,7 +28,7 @@ class Douban(Spider):
         for url in self.start_urls:
             yield Request(url=url, headers=self.default_headers, callback=self.parse)
 
-    def parse(self, response):
+    def parse(self, response, **kwargs):
         # 循环该页面
         list_imgs = response.xpath('//div[@class="photolst clearfix"]//img/@src').extract()
 
