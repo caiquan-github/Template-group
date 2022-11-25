@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.sh.demo.core.dao.SysUserDao">
+<mapper namespace="com.caiquan.core.dao.SysUserDao">
 
 	<!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.sh.demo.core.entity.SysUserEntity" id="sysUserMap">
+    <resultMap type="com.caiquan.core.entity.SysUserEntity" id="sysUserMap">
         <result property="userId" column="user_id"/>
         <result property="username" column="username"/>
         <result property="password" column="password"/>

@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
-@MapperScan(basePackages = {"com.sh.demo.core.dao"}) //扫描DAO
+@MapperScan(basePackages = {"com.caiquan.core.dao"}) //扫描DAO
 public class DemoApplication {
 
     public static void main(String[] args) {
