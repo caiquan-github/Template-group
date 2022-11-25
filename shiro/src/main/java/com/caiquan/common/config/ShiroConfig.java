@@ -39,7 +39,7 @@ public class ShiroConfig {
     private int port;
     @Value("${spring.redis.timeout}")
     private int timeout;
-    @Value("${spring.redis.password}")
+    @Value("${spring.redis.password:#{null}}")
     private String password;
 
     /**
