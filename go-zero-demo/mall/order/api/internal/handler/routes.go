@@ -23,4 +23,26 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 			},
 		},
 	)
+
+	// 也可以下面这样写
+	//server.AddRoutes(
+	//	[]rest.Route{
+	//		{
+	//			Method:  http.MethodGet,
+	//			Path:    "/api/order/get/:id",
+	//			Handler: getOrderHandler(serverCtx),
+	//		},
+	//	},
+	//)
+	//
+	//server.AddRoutes(
+	//	[]rest.Route{
+	//		{
+	//			Method:  http.MethodGet,
+	//			Path:    "/api/order/getUserName/:id",
+	//			Handler: getUserNameHandler(serverCtx),
+	//		},
+	//	},
+	//)
+
 }
