@@ -20,4 +20,5 @@ message UserResponse {
 
 service User {
   rpc getUser(IdRequest) returns(UserResponse);
+  rpc getUserName(IdRequest) returns(UserResponse);
 }

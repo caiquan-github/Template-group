@@ -14,7 +14,8 @@ type ServiceContext struct {
 
 func NewServiceContext(c config.Config) *ServiceContext {
 	return &ServiceContext{
-		Config:  c,
+		Config: c,
+		//用户rpc远程调用信息
 		UserRpc: userclient.NewUser(zrpc.MustNewClient(c.UserRpc)),
 	}
 }

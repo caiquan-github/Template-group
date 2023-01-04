@@ -29,3 +29,11 @@ func (l *GetUserLogic) GetUser(in *user.IdRequest) (*user.UserResponse, error) {
 		Name: "test",
 	}, nil
 }
+
+func (l *GetUserLogic) GetUserName(in *user.IdRequest) (*user.UserResponse, error) {
+	// todo: add your logic here and delete this line
+
+	return &user.UserResponse{
+		Name: "test2",
+	}, nil
+}

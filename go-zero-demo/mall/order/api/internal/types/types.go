@@ -9,4 +9,5 @@ type OrderReply struct {
 	Id   string `json:"id"`
 	Name string `json:"name"`
 	Dodo string `json:"dodo"`
+	Gender string `json:"gender"`
 }

@@ -18,6 +18,7 @@ type (
 
 	User interface {
 		GetUser(ctx context.Context, in *IdRequest, opts ...grpc.CallOption) (*UserResponse, error)
+		GetUserName(ctx context.Context, in *IdRequest, opts ...grpc.CallOption) (*UserResponse, error)
 	}
 
 	defaultUser struct {
@@ -34,4 +35,9 @@ func NewUser(cli zrpc.Client) User {
 func (m *defaultUser) GetUser(ctx context.Context, in *IdRequest, opts ...grpc.CallOption) (*UserResponse, error) {
 	client := user.NewUserClient(m.cli.Conn())
 	return client.GetUser(ctx, in, opts...)
+}
+
+func (m *defaultUser) GetUserName(ctx context.Context, in *IdRequest, opts ...grpc.CallOption) (*UserResponse, error) {
+	client := user.NewUserClient(m.cli.Conn())
+	return client.GetUserName(ctx, in, opts...)
 }
