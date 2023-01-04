@@ -3,8 +3,6 @@ package logic
 import (
 	"context"
 	"errors"
-	"fmt"
-
 	"go-zero-demo/mall/order/api/internal/svc"
 	"go-zero-demo/mall/order/api/internal/types"
 	"go-zero-demo/mall/user/rpc/types/user"
@@ -32,11 +30,6 @@ func (l *GetOrderLogic) GetOrder(req *types.OrderReq) (*types.OrderReply, error)
 		Id: "1",
 	})
 
-	user2, _ := l.svcCtx.UserRpc.GetUserName(l.ctx, &user.IdRequest{
-		Id: "2",
-	})
-	fmt.Println("咳咳", user2.Name)
-
 	//如果有错误 返回错误
 	if err != nil {
 		return nil, err
@@ -52,5 +45,18 @@ func (l *GetOrderLogic) GetOrder(req *types.OrderReq) (*types.OrderReply, error)
 		Id:     req.Id,
 		Name:   user1.Name,
 		Gender: user1.Gender,
+	}, nil
+}
+func (l *GetOrderLogic) GetUserName(req *types.OrderReq) (*types.OrderReply, error) {
+	user, err := l.svcCtx.UserRpc.GetUserName(l.ctx, &user.IdRequest{
+		Id: "2",
+	})
+
+	//如果有错误 返回错误
+	if err != nil {
+		return nil, err
+	}
+	return &types.OrderReply{
+		Name: user.Name,
 	}, nil
 }
