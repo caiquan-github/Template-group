@@ -13,8 +13,9 @@ index = 1
 for i in file:
     i = i.strip()
     if not i.startswith('private'):
-        if i.startswith('//'):
-            st += i.replace('//', '')
+        if i.startswith('//') or i.startswith('@ApiModelProperty'):
+            st += i.replace('//', '').replace('@ApiModelProperty(', '').replace('"', '').replace('=', '').replace(
+                'value', '').replace(')','')
         continue
 
     # 根据空格分割  0舍弃，1类型，2参数，3注解 可能没有注释
