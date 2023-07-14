@@ -9,7 +9,7 @@
 </head>
 <body>
 <ul id="app">
-    <li v-for="name in nameList">
+    <li v-for="name in names">
         {{name.message}}
     </li>
 </ul>
@@ -21,6 +21,11 @@
         data:{
             nameList:[
                 {message: "鬼灭之刃"},
+                {message: "超科学电磁炮"},
+                {message: "我们无法一起学习"}
+            ],
+            names:[
+                {message: "鬼灭之刃-锻刀篇"},
                 {message: "超科学电磁炮"},
                 {message: "我们无法一起学习"}
             ]
