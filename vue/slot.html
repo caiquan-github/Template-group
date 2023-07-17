@@ -6,16 +6,17 @@
 </head>
 <body>
 <div id="app">
-    <todo>
+    <todo332>
         <todo-title slot="todo-title-1" v-bind:title="title"></todo-title>
         <todo-itmes slot="todo-itmes-1" v-for="(itme,index) in itmes" v-bind:itme="itme" v-bind:index="index" v-on:remove="removeItmes(index)"></todo-itmes>
-    </todo>
+    </todo332>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
 <script type="text/javascript">
-    Vue.component("todo",{
+    Vue.component("todo332",{
         template: "<div>\
+                    <!--slot 标签代表插入  name=x     对应上面的代码有指定 solt=x -->\
                     <slot name='todo-title-1'></slot>\
                         <ul>\
                             <slot name='todo-itmes-1'></slot>\
