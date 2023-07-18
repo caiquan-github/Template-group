@@ -10,7 +10,7 @@
         <todo-title slot="todo-title-1" v-bind:title="title"></todo-title>
         <todo-itmes slot="todo-itmes-1" v-for="(itme,index) in itmes" v-bind:itme="itme" v-bind:index="index" v-on:remove="removeItmes(index)"></todo-itmes>
     </todo332>
-    <input type="text" v-model="inName" /> <button v-on:click="add(inName)">add</button>
+    <input type="text" v-model="inName" /> <button @click="add(inName)">add</button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
