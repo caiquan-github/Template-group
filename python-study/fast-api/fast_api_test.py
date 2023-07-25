@@ -1,6 +1,7 @@
-from ctypes import Union
-
+from fastapi import FastAPI
+from typing import Union
 from api import app
+
 
 
 # http://127.0.0.1:8000
@@ -10,6 +11,6 @@ async def root():
 
 
 # http://127.0.0.1:8000/items/213?q=dwdw
-@app.get("/items/{item_id}")
+@app.get("/items/{item_id}/{q}")
 def read_item(item_id: int, q: Union[str, None] = None):
     return {"item_id": item_id, "q": q}

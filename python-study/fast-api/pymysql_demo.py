@@ -1,6 +1,6 @@
-from api import app
 import pymysql
 
+from api import app
 
 db = pymysql.connect(host='192.168.29.200',
                      user='root',
