@@ -1,3 +1,4 @@
+package cn.kwon.exception.base;
 
 /**
  * 错误码

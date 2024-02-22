@@ -1,3 +1,5 @@
+package cn.kwon.exception.base;
+
 import java.util.StringJoiner;
 
 //通用异常

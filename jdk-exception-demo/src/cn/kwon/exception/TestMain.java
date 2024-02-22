@@ -1,7 +1,12 @@
+package cn.kwon.exception;
+
+import cn.kwon.exception.base.BaseException;
+import cn.kwon.exception.loan.LoanManageErrorCode;
+import cn.kwon.exception.loan.LoanManageException;
+
 public class TestMain {
     public static void main(String[] args) {
-        ex3();
-        System.out.println("test");
+        ex2();
     }
 
 
@@ -10,7 +15,7 @@ public class TestMain {
     }
 
     public static String ex2(){
-        throw new BaseException(LoanManageErrorCode.REPAY_PRINCIPAL_IS_GREATER_THAN_PRINCIPAL,"错误值1","错误值2");
+        throw new LoanManageException(LoanManageErrorCode.REPAY_PRINCIPAL_IS_GREATER_THAN_PRINCIPAL,10,20);
     }
 
 
