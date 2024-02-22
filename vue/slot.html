@@ -6,16 +6,18 @@
 </head>
 <body>
 <div id="app">
-    <todo>
+    <todo332>
         <todo-title slot="todo-title-1" v-bind:title="title"></todo-title>
         <todo-itmes slot="todo-itmes-1" v-for="(itme,index) in itmes" v-bind:itme="itme" v-bind:index="index" v-on:remove="removeItmes(index)"></todo-itmes>
-    </todo>
+    </todo332>
+    <input type="text" v-model="inName" /> <button @click="add(inName)">add</button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
 <script type="text/javascript">
-    Vue.component("todo",{
+    Vue.component("todo332",{
         template: "<div>\
+                    <!--slot 标签代表插入  name=x     对应上面的代码有指定 solt=x -->\
                     <slot name='todo-title-1'></slot>\
                         <ul>\
                             <slot name='todo-itmes-1'></slot>\
@@ -40,12 +42,17 @@
         el: "#app",
         data:{
             title:"新番",
-            itmes:["炭智狼","米豆子"]
+            itmes:["炭智狼","米豆子"],
+            inName:"路飞"
         },
         methods: {
             removeItmes: function (index) {
                 this.itmes.splice(index,1)
-                
+
+            },
+            add: function (name){
+                //push() 结尾添加数组.push(元素) unshift() 头部添加数组.unshift(元素)
+                this.itmes.push(name)
             }
         }
     });
