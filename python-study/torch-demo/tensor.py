@@ -25,6 +25,7 @@ print(x)
 x = torch.randn_like(x, dtype=torch.float)  # 重载 dtype!
 print(x)  # 结果size一致
 print(x.size())  # 获取张量的状态
+
 print('--------------------------------------')
 
 # 加法

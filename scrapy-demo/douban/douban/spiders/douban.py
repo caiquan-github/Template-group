@@ -24,8 +24,9 @@ class Douban(Spider):
         super(Douban, self).__init__(*args, **kwargs)
 
     def start_requests(self):
-
+        # start_urls是一个列表 里面包含了url  循环这个列表
         for url in self.start_urls:
+            # callback代表回调函数 这里指定了下面的parse函数
             yield Request(url=url, headers=self.default_headers, callback=self.parse)
 
     def parse(self, response, **kwargs):
@@ -33,9 +34,12 @@ class Douban(Spider):
         list_imgs = response.xpath('//div[@class="photolst clearfix"]//img/@src').extract()
 
         if not list_imgs:
+            # 如果没有就返回
             return
 
+        # 有照片
         for url in list_imgs:
+            # 创建一个图片对象 然后 yield
             item = DoubanImgsItem()
             item['image_urls'] = [url]
             yield item
