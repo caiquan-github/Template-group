@@ -1,6 +1,8 @@
 package cn.kwon.exception.loan;
 
 
+import cn.kwon.exception.base.ExplicableErrorCode;
+
 //资产管理  断言工具
 public class LoanManageAssert {
     public static void isTrue(boolean expression, LoanManageErrorCode errorCode, Object... args) {
@@ -22,5 +24,11 @@ public class LoanManageAssert {
             throw new LoanManageException(errorCode, num1, num2);
         }
 
+    }
+
+
+    public static void main(String[] args) {
+        LoanManageAssert.isEquals(1,1, LoanManageErrorCode.REPAY_PRINCIPAL_IS_NEGATIVE);
+        LoanManageAssert.isLessThanOrEqualTo(1,1, LoanManageErrorCode.REPAY_PRINCIPAL_IS_GREATER_THAN_PRINCIPAL);
     }
 }
