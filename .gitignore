@@ -45,3 +45,7 @@ Thumbs.db
 *.iws
 *.iml
 *.ipr
+
+
+**/.vs/ 
+**/x64/ 
