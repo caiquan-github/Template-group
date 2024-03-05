@@ -46,6 +46,6 @@ Thumbs.db
 *.iml
 *.ipr
 
-
+### vs sdk
 **/.vs/ 
 **/x64/ 
