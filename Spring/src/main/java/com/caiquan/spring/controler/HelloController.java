@@ -8,8 +8,10 @@ import com.caiquan.spring.service.Impl.HelloServiceImpl;
 import com.caiquan.spring.service.WorkService;
 import com.caiquan.spring.threadPool.ThreadPool;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,6 +24,7 @@ import java.util.Map;
  * @date 2020/3/2322:15
  */
 @RestController("hello")
+@Scope("prototype")
 public class HelloController implements HelloControllerFace2 {
     @Autowired
     HelloService helloServiceImpl;
@@ -37,6 +40,11 @@ public class HelloController implements HelloControllerFace2 {
     @Override
     public String test(@PathVariable("value")String value){
         return value;
+    }
+
+    @GetMapping("hello")
+    public int hello(TestDto testDto, HttpServletResponse response, HttpServletRequest request){
+        return helloServiceImpl.hashCode();
     }
 
     @GetMapping("test")
@@ -64,17 +72,17 @@ public class HelloController implements HelloControllerFace2 {
     }
 
 
-    @Autowired
-    public void testAuto() throws InterruptedException {
-        ThreadPool.es.submit(()->{
-            System.out.println("测试自动11111");
-            System.out.println(workService.test());
-            try {
-                Thread.sleep(223000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
-    }
+//    @Autowired
+//    public void testAuto() throws InterruptedException {
+//        ThreadPool.es.submit(()->{
+//            System.out.println("测试自动11111");
+//            System.out.println(workService.test());
+//            try {
+//                Thread.sleep(223000);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        });
+//    }
 
 }

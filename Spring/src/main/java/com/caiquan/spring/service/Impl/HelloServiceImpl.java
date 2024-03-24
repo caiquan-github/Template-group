@@ -14,11 +14,16 @@ import java.beans.Transient;
  * @date 2020/3/2322:27
  */
 @Component
-//@Scope("prototype")
+@Scope("prototype")
 public class HelloServiceImpl implements HelloService {
     public int vue=1;
 
 //    public HelloServiceImpl(WorkService workService) { }
+
+
+    public HelloServiceImpl(){
+        System.out.println("测试Bean的初始化时机");
+    }
 
     @Override
     @Transient

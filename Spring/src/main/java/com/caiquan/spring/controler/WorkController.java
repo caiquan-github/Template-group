@@ -33,18 +33,18 @@ public class WorkController {
         return value;
     }
 
-    @Autowired
-    public void testAuto()  {
-        ThreadPool.es.submit(()->{
-            System.out.println("测试自动");
-            System.out.println(helloServiceImpl.hello());
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
-
-    }
+//    @Autowired
+//    public void testAuto()  {
+//        ThreadPool.es.submit(()->{
+//            System.out.println("测试自动");
+//            System.out.println(helloServiceImpl.hello());
+//            try {
+//                Thread.sleep(2000);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        });
+//
+//    }
 
 }
