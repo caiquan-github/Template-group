@@ -3,6 +3,7 @@ package com.caiquan.spring.controler;
 import com.caiquan.spring.service.PayService;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +22,10 @@ import java.util.Map;
 public class PayController implements InitializingBean, ApplicationContextAware {
 
 
+    // 直接使用 @Autowired 也可以
     List<PayService> payServiceList=new ArrayList<>();
+
+    @Autowired
     ApplicationContext applicationContext;
 
     @GetMapping("pay1/{code}")
