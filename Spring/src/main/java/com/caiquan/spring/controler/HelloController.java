@@ -23,7 +23,7 @@ import java.util.Map;
  * @Description:
  * @date 2020/3/2322:15
  */
-@RestController("hello")
+@RestController()
 @Scope("prototype")
 public class HelloController implements HelloControllerFace2 {
     @Autowired
