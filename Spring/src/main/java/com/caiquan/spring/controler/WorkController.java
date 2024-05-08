@@ -4,10 +4,7 @@ import com.caiquan.spring.service.HelloService;
 import com.caiquan.spring.threadPool.ThreadPool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author Kwon
@@ -27,7 +24,7 @@ public class WorkController {
         return helloServiceImpl.hello();
     }
 
-    @GetMapping("test/{value}/add")
+    @PostMapping("test/{value}/add")
     @ResponseBody
     public String test(@PathVariable("value") String value){
         return value;
