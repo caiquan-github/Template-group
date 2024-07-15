@@ -5,10 +5,8 @@ import redis
 client = redis.StrictRedis(host='192.168.10.101', port=6379, db=0)
 
 
-
-
 def seckill(user_id):
-    with open('seckill.lua', 'r',encoding='utf-8') as file:
+    with open('seckill.lua', 'r', encoding='utf-8') as file:
         lua_script = file.read()
 
     # 将 Lua 脚本加载到 Redis
@@ -28,9 +26,14 @@ def seckill(user_id):
         return "未知错误"
 
 
-if __name__ == "__main__":
+def add(user_id):
     # 示例用户 ID
-    user_id = 'user:54'
+    user_id = user_id
     # 执行秒杀操作
     result = seckill(user_id)
     print(result)
+
+
+if __name__ == "__main__":
+    for i in range(103):  # 假设库存为100
+        add('user:'+i.__str__())
