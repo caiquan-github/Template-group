@@ -1,5 +1,5 @@
 const Popup = () => (
-    <div>popup plasmo</div>
+    <div>popup plasmo  11111</div>
 )
 
 export default Popup
