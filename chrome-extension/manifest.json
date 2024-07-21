@@ -33,8 +33,7 @@
             "48": "img/icon.png",
             "64": "img/icon.png",
             "128": "img/icon.png"
-        },
-        "default_popup": "popup.html"
+        }
     },
     "icons": {
         "16": "img/icon.png",
