@@ -7,7 +7,7 @@ package com.caiquan.common.constant;
  */
 public interface RedisConstant {
     /**
-     * TOKEN前缀
+     * TOKEN前缀  存储在redis中
      */
     String REDIS_PREFIX_LOGIN = "login_token_%s";
     /**
