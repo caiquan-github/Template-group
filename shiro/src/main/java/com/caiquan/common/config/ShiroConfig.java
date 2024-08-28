@@ -32,6 +32,10 @@ public class ShiroConfig {
     private final String CACHE_KEY = "shiro:cache:";
     private final String SESSION_KEY = "shiro:session:";
 
+    //登录过期时间 秒
+    private static final int tokenTimeout = 24 * 60 * 60;
+
+
     //Redis配置
     @Value("${spring.redis.host}")
     private String host;
@@ -176,7 +180,7 @@ public class ShiroConfig {
         redisSessionDAO.setRedisManager(redisManager());
         redisSessionDAO.setSessionIdGenerator(sessionIdGenerator());
         redisSessionDAO.setKeyPrefix(SESSION_KEY);
-        redisSessionDAO.setExpire(timeout);
+        redisSessionDAO.setExpire(tokenTimeout);
         return redisSessionDAO;
     }
 
